@@ -1,0 +1,317 @@
+.rule_config{
+    margin: 0;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 15px;
+    font-weight: normal;
+    background-color: #fff;
+    color: #000;
+}
+.p-rc-cdsm {
+    border: 1px solid #C9C9C9;
+    background-color: #F9FAFE;
+}
+.condition-single-item {
+
+}
+.policy-detail {
+    width: 0px;
+    display: none;
+    position: fixed;
+    top: 60px;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    background-color: #fff;
+    padding: 20px 30px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+}
+.policy-detail-title .title-pre {
+    font-size: 26px;
+    color: #A0A0A0;
+    margin-right: 10px;
+}
+.policy-detail-title>* {
+    vertical-align: middle;
+}
+.policy-detail-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.policy-detail-title .title-close {
+    position: relative;
+    top: 7px;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+}
+.fr {
+    float: right;
+    display: inline;
+}
+.policy-detail-base {
+    border-top: 1px solid #CDCDCD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.policy-detail-group {
+    padding: 3px 0;
+    font-size: 14px;
+}
+.policy-detail-group label {
+    color: #C8C8C8;
+    display: inline-block;
+    min-width: 64px;
+    min-height: 21px;
+    margin-right: 20px;
+}
+.policy-detail-group span {
+    white-space: nowrap;
+}
+.policy-detail-group {
+    padding: 3px 0;
+    font-size: 14px;
+}
+.policy-detail-modify {
+    border-top: 1px solid #CDCDCD;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+.policy-detail-sep {
+    height: 5px;
+    margin: 0;
+    padding: 0;
+    background: -moz-linear-gradient(left, #3498DB, #71C195);
+    background: -webkit-linear-gradient(left, #3498DB, #71C195);
+    background: -o-linear-gradient(left, #3498DB, #71C195);
+    background: -ms-linear-gradient(left, #3498DB, #71C195);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#3498DB, endColorstr=#71C195);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient (GradientType=1, startColorstr=#3498DB, endColorstr=#71C195);
+    background-color: #CDCDCD;
+}
+.policy-detail-rule {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+    font-family: inherit;
+    font-weight: bold;
+    line-height: 20px;
+    color: inherit;
+    text-rendering: optimizelegibility;
+}
+.policy-detail-status {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.policy-detail-ruleList {
+    margin: 0;
+    padding: 5px 0;
+    border-top: 1px solid #EAEAEA;
+    padding-top: 10px;
+}
+ol, ul {
+    list-style: none;
+}
+.policy-detail-ruleList a[disabled] {
+    color: #A6A6A6;
+}
+.policy-detail-ruleList>li {
+    line-height: 22px;
+}
+.policy-detail-ruleList a {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 450px;
+    white-space: nowrap;
+}
+a:visited {
+    color: #333333;
+}
+a:link {
+    color: #333333;
+}
+:link, :visited, ins {
+    text-decoration: none;
+    color: inherit;
+}
+.ruleGroup-info {
+    margin: 20px 20px;
+}
+.ruleGroup-info h4 {
+    color: #999999;
+}
+.rule-each {
+    margin: 5px 50px;
+    height: 40px;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    background: #fafafa;
+    margin-right: 100px;
+    position: relative;
+}
+.rule-each .rule-each-id {
+    line-height: 40px;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #B4B4B4;
+}
+.rule-each .rule-each-name {
+    margin-left: 30px;
+}
+.rule-each .rule-each-risk {
+    position: absolute;
+    top: 10px;
+    left: 650px;
+}
+.rule-edit-button {
+    float: right;
+    height: 40px;
+    border-radius: 10px;
+    width: 80px;
+    border: 1px solid #ccc;
+    background: #ffffff;
+    cursor: pointer;
+    margin-right: -85px;
+}
+.modal-body .modal-content .padding-wrap {
+    padding: 16px 16px 0 16px;
+}
+.ml30 {
+    margin-left: 30px;
+}
+.tool-button {
+    min-width: 70px;
+    padding: 0 10px;
+    height: 34px;
+    line-height: 32px;
+    color: #646464;
+    background: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    border-radius: 1px;
+    cursor: pointer;
+    text-shadow: 0 1px 0 #FFF;
+}
+.ruleGroup-table {
+    margin-top: 30px;
+    max-height: 500px;
+}
+.ruleGroup-table table {
+    width: 90%;
+    border: 1px solid #ccc;
+    margin-left: 30px;
+}
+.ruleGroup-table table th {
+    background: #f9f9f9;
+    height: 45px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+.ruleGroup-table table td {
+    height: 45px;
+    text-align: center;
+    border-bottom: 1px dashed #ccc;
+}
+.ruleGroup-table .blue {
+    background: #2EA5FF;
+}
+.ruleGroup-table .gray {
+    background: #CCCCCC;
+}
+.ruleGroup-button {
+    width: 50px;
+    height: 26px;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+.table td {
+    padding: 12px 8px !important;
+    height: 26px;
+    position: relative;
+    text-overflow: ellipsis;
+    max-width: 145px;
+    overflow: hidden;
+}
+.table thead th {
+    height: 44px;
+    padding: 5px 8px;
+    font-size: 14px;
+    color: #333;
+    vertical-align: middle;
+    background: #FFF;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.tool-bar {
+    position: relative;
+    padding: 10px;
+    margin: 0 15px;
+    width: auto;
+    min-height: 44px;
+    background: #fff;
+}
+.tool-bar .toolBar-left, .realname-tool-bar .realname-toolBar-left {
+    top: 0 !important;
+    width: 100%;
+}
+.tool-bar .toolBar-left {
+    position: relative;
+    top: 2px;
+    float: left;
+    line-height: 40px;
+    min-height: 40px;
+}
+.toolBar-left, .realname-toolBar-left {
+    min-height: 48px;
+    line-height: 48px;
+    /* background: #f5f5f5; */
+    width: 100%;
+}
+ .single-apply-title {
+    margin-left: 30px;
+    font-size: 20px;
+}
+.single-line {
+    width: 94%;
+    border-bottom: 1px dashed #ccc;
+    margin: 10px 30px;
+}
+.condition-conf-label {
+    font-size: 14px;
+    font-weight: 200;
+    margin-top: 0px;
+}
+.operate-rules-form {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px dashed #ccc;
+    margin: 0px 15px 15px 15px;
+    background-color: #fff;
+    padding: 10px;
+}
+#policyRules-hd {
+    width: 100%;
+    padding: 20px 0;
+    z-index: 20;
+    text-align: left;
+}

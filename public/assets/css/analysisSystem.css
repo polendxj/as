@@ -315,3 +315,223 @@ a:link {
     z-index: 20;
     text-align: left;
 }
+
+#slideInfoDetail {
+    position: fixed;
+    top: 1px;
+    background: #fff;
+    border-left: 1px solid #ddd;
+    -webkit-box-shadow: 0 2px 11px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 2px 11px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 11px rgba(0, 0, 0, 0.2);
+}
+.slideInfoContent {
+    height: 80%;
+    overflow: auto;
+    padding: 30px;
+}
+.column-left {
+    width: 100%;
+    float: left;
+}
+#baseInfo, #addressInfo, #ipInfo {
+    clear: both;
+    width: 100%;
+    overflow: hidden;
+}
+.box.activity {
+    border-radius: 5px;
+    border: 1px solid #e1e1e1;
+    margin-bottom: 15px;
+    height: auto;
+    overflow: auto;
+    max-width: inherit;
+}
+.box {
+    height: auto;
+    overflow: hidden;
+    max-width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box.activity .activity-title {
+    height: 34px;
+    background: #818181;
+}
+.box.activity .activity-title h2 {
+    margin: 0;
+    padding-left: 16px;
+    line-height: 34px;
+}
+.slideInfoContent h2 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 36px;
+    color: #FFF;
+    padding-left: 10px;
+}
+#baseInfo .activity-content, #ipInfo .activity-content {
+    min-width: 710px;
+}
+.box.activity .activity-content {
+    padding: 20px;
+    overflow: hidden;
+}
+.box.activity .activity-content .activity-base {
+    min-height: 100px;
+    padding-top: 0;
+    overflow: hidden;
+}
+.activity-base .canvas-score-wp {
+    float: left;
+}
+.activity-base .canvas-score {
+    width: 100px;
+    height: 100px;
+    margin-left: 0;
+}
+.activity-base .activity-list {
+    float: left;
+    width: 60%;
+    margin-left: 20px;
+}
+ul.activity-list {
+    margin: 0;
+}
+ul.activity-list > li {
+    position: relative;
+    clear: both;
+    margin-bottom: 9px;
+    overflow: hidden;
+}
+ul.activity-list > li > label {
+    float: left;
+    width: 105px;
+    text-align: left;
+    font-size: 14px;
+    color: #999999;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+ul.activity-list > li > span {
+    color: #333;
+    display: block;
+    margin-left: 105px;
+    word-break: break-all;
+}
+.hit-list ul.activity-list > li > label {
+    width: 41%;
+}
+ul.activity-list > li > label {
+    float: left;
+    width: 105px;
+    text-align: left;
+    font-size: 14px;
+    color: #999999;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+#deviceInfo ul.activity-list > li > label, #fieldInfo ul.activity-list > li > label {
+    width: 125px;
+}
+#deviceInfo ul.activity-list > li > span, #fieldInfo ul.activity-list > li > span {
+    margin-left: 125px;
+}
+.divider {
+    height: 1px;
+    margin: 20px 0;
+    overflow: hidden;
+    border-top: 1px dashed #e1e1e1;
+    clear: both;
+}
+.activity-hit {
+    overflow: hidden;
+}
+.activity-hit .activity-hit-title {
+    clear: both;
+    float: left;
+    overflow: hidden;
+    padding-right: 1em;
+    margin: 10px 2px 8px 0;
+    border-right: 1px solid #999999;
+    color: #A3A3A3;
+}
+.box.activity .activity-content h5 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+    color: #999999;
+    float: left;
+}
+.activity-hit .activity-hit-title h5 {
+    float: left;
+}
+.activity-hit .activity-hit-content {
+    position: relative;
+    width: 80%;
+    float: left;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0;
+}
+.activity-hit .activity-hit-content .activity-list {
+    height: auto;
+    vertical-align: top;
+    width: 48%;
+    box-sizing: border-box;
+}
+.activity-hit .activity-hit-content > ul {
+    padding: 0 1em;
+    display: inline-block;
+    line-height: 1.6;
+    font-family: "helvetica neue","Microsoft YaHei",arial,sans-serif;
+    color: #222;
+    font-size: 14px;
+}
+.column-right {
+    width: 100%;
+    float: right;
+}
+.box.activity .activity-content .ip-list {
+    float: left;
+    min-width: 215px;
+    width: 30%;
+    display: inline-block;
+}
+.box.activity .activity-content .ip-list:not(:first-child) {
+    margin-left: 1em;
+    padding-left: 1em;
+    border-left: 1px dashed #ccc;
+}
+#mobilePhoneInfo {
+    overflow: hidden;
+}
+.box.activity .activity-content .mobile-list {
+    float: left;
+    min-width: 215px;
+    width: 30%;
+    display: inline-block;
+}
+#deviceInfo {
+    clear: both;
+    width: 49%;
+    display: inline-block;
+}
+#device_exception, #device_success_exception label, #device_success_exception #exception_content {
+    color: #C40000;
+}
+#fieldInfo {
+    clear: both;
+    width: 49%;
+    float: right;
+    display: inline-block;
+}
+#slideControler {
+    width: 13px;
+    height: 79px;
+    position: absolute;
+    left: 0px;
+    background: url(../images/pageIcon.png) -10px -30px;
+}

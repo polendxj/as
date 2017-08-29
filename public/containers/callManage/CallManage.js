@@ -47,10 +47,12 @@ class CallManage extends Component{
 
     }
     showDetail(){
-        $("#call-detail").animate({top: "61px", right:"0px"});
+        console.log("aaa");
+        $("#slideInfoDetail").animate({top: "61px", right:"0px"});
+        progressCounter('#goal-progress', 50, 5, "#E6C85A", 0.35);
     }
     closeDetail(){
-        $("#call-detail").animate({top: "61px", right:"-1500px"});
+        $("#slideInfoDetail").animate({top: "61px", right:"-1500px"});
     }
     render(){
         var tableHeight = ($(window).height() - 130);
@@ -171,7 +173,7 @@ class CallManage extends Component{
                                                             </ul>
                                                         </td>
                                                     </tr>
-                                                    <tr style={{backgroundColor:"#F8F8F8"}}>
+                                                    <tr onClick={this.showDetail.bind(this)} style={{backgroundColor:"#F8F8F8"}}>
                                                         <td className="text-center">{"2017-08-27"}</td>
                                                         <td className="text-center">{"借款事件"}</td>
                                                         <td className="text-center">{"人工审核"}</td>
@@ -200,7 +202,7 @@ class CallManage extends Component{
                                                             </ul>
                                                         </td>
                                                     </tr>
-                                                    <tr>
+                                                    <tr onClick={this.showDetail.bind(this)}>
                                                         <td className="text-center">{"2017-08-27"}</td>
                                                         <td className="text-center">{"借款事件"}</td>
                                                         <td className="text-center">{"拒绝"}</td>
@@ -377,128 +379,302 @@ class CallManage extends Component{
                         </div>
                     </div>
                 </div>
-                <div id="policy-detail" className="slideInfoContent" style={{top: "61px", width: "480px", right:"-1500px",display:"block"}}>
-                    <div className="column-left">
-                        <section id="baseInfo" className="box activity">
-                            <div className="activity-title">
-                                <h2>风险决策</h2>
-                            </div>
-                            <div className="activity-content">
-                                <div className="activity-base">
-                                    <div className="canvas-score-wp">
-                                        <div className="canvas-score">
-                                            <canvas id="canvasScore" width="100" height="100"></canvas>
-                                        </div>
-                                    </div>
-                                    <ul className="activity-list">
-                                        <li>
-                                            <label>sequenceID</label>
-                                            <span id="sequence_id">1503970256666280T0B5655405742149</span></li>
-                                        <li>
-                                            <label>事件标识</label>
-                                            <span id="eventId">Loan_web_20170406</span></li>
-                                        <li className="tem-hide">
-                                            <label>策略集名称</label>
-                                            <span id="policyName_group">借款事件_网站_20170406</span></li>
-                                        <li className="tem-hide">
-                                            <label>风险状态</label>
-                                            <span id="riskStatus" className="accept">Accept</span></li>
-                                        <li className="tem-hide">
-                                            <label>风险系数</label>
-                                            <span id="riskScore">5</span></li>
-                                    </ul>
-                                </div>
-                                <div className="divider"></div>
-                                <div className="activity-hit">
-                                    <div className="activity-hit-title">
-                                        <h5>风险详情</h5>
-                                    </div>
-                                    <div className="activity-hit-content hit-list">
-                                        <ul className="activity-list activity-hit-policy" style={{overflow: "hidden",marginTop: "10px", marginBottom: "10px"}}>
-                                            <li><label>策略名称</label><span>异常借款</span></li><li><label>风险状态</label><span className="accept">Accept</span></li>
-                                            <li><label>风险系数</label><span>5</span></li><li><label>风险类型</label><span>异常借款</span></li>
-                                            <li><label>命中规则：</label><ul className="hit-policy-rule-list has-detail"><li>
-                                                <a>7天内设备或身份证或手机号申请次数过多</a></li></ul></li></ul></div>
-                                </div>
-                            </div>
-                        </section>
-                        <div className="column-right">
-                            <section id="ipInfo" className="box activity">
+                <div id="slideInfoDetail" style={{height: tableHeight+"px", width: "1413px",top: "61px",right:"-1500px",display:"block"}}>
+                    <div className="slideInfoContent">
+                        <div className="column-left">
+                            <section id="baseInfo" className="box activity">
                                 <div className="activity-title">
-                                    <h2>IP信息</h2>
+                                    <h2>风险决策</h2>
                                 </div>
                                 <div className="activity-content">
-                                    <ul className="activity-list ip-list">
-
-                                        <li>
-                                            <label>来源IP</label>
-                                            <span id="ipAddress" className="font-color-blue">-</span></li>
-                                        <li>
-                                            <label>地理位置</label>
-                                            <span id="ipGeoLocation">-</span></li>
-                                        <li>
-                                            <label>经度</label>
-                                            <span id="ipLongitude">-</span></li>
-                                        <li>
-                                            <label>纬度</label>
-                                            <span id="ipLatitude">-</span></li>
-                                        <li>
-                                            <label>运营商</label>
-                                            <span id="ipIsp">-</span></li>
-                                        <li>
-                                            <label>IP类型</label>
-                                            <span id="ipType">未知</span></li>
-                                        <li>
-                                            <label>IP风险评分</label>
-                                            <span id="ipRiskScore">0</span></li>
-                                    </ul>
-                                    <ul className="activity-list ip-list ipJudge">
-                                        <li>
-                                            <label>真实IP</label>
-                                            <span id="trueIpAddress" className="font-color-blue">-</span></li>
-                                        <li>
-                                            <label>地理位置</label>
-                                            <span id="trueGeoLocation">-</span></li>
-                                        <li>
-                                            <label>经度</label>
-                                            <span id="trueIpLongitude">-</span></li>
-                                        <li>
-                                            <label>纬度</label>
-                                            <span id="trueIpLatitude">-</span></li>
-                                        <li>
-                                            <label>运营商</label>
-                                            <span id="trueIpIsp">-</span></li>
-                                        <li>
-                                            <label>IP类型</label>
-                                            <span id="trueIpType">未知</span></li>
-                                        <li>
-                                            <label>IP风险评分</label>
-                                            <span id="trueIpRiskScore">0</span></li>
-                                    </ul>
-                                    <ul className="activity-list ip-list ipJudge">
-                                        <li>
-                                            <label>代理检测</label>
-                                            <span id="proxyIs">否</span></li>
-                                        <li>
-                                            <label>代理类型</label>
-                                            <span id="proxyType">-</span></li>
-                                        <li>
-                                            <label>代理端口</label>
-                                            <span id="proxyPort">-</span></li>
-                                        <li>
-                                            <label>行为历史</label>
-                                            <span id="proxyHistory">-</span></li>
-                                    </ul>
+                                    <div className="activity-base">
+                                        <div className="canvas-score-wp">
+                                            <div className="canvas-score">
+                                                <div className="content-group-sm svg-center position-relative" id="goal-progress"></div>
+                                            </div>
+                                        </div>
+                                        <ul className="activity-list">
+                                            <li>
+                                                <label>sequenceID</label>
+                                                <span id="sequence_id">1503970256666280T0B5655405742149</span></li>
+                                            <li>
+                                                <label>事件标识</label>
+                                                <span id="eventId">Loan_web_20170406</span></li>
+                                        </ul>
+                                    </div>
+                                    <div className="divider"></div>
+                                    <div className="activity-hit">
+                                        <div className="activity-hit-title">
+                                            <h5>风险详情</h5>
+                                        </div>
+                                        <div className="activity-hit-content hit-list">
+                                            <ul className="activity-list activity-hit-policy" style={{overflow: "hidden", marginTop: "10px", marginBottom: "10px"}}>
+                                                <li><label>策略名称</label><span>异常借款</span></li><li><label>风险状态</label><span className="accept">Accept</span></li>
+                                                <li><label>风险系数</label><span>5</span></li><li><label>风险类型</label><span>异常借款</span></li>
+                                                <li><label>命中规则：</label><ul className="hit-policy-rule-list has-detail"><li>
+                                                    <a>7天内设备或身份证或手机号申请次数过多</a></li></ul></li></ul></div>
+                                    </div>
                                 </div>
                             </section>
+                            <div className="column-right">
+                                <section id="ipInfo" className="box activity">
+                                    <div className="activity-title">
+                                        <h2>IP信息</h2>
+                                    </div>
+                                    <div className="activity-content">
+                                        <ul className="activity-list ip-list">
+
+                                            <li>
+                                                <label>来源IP</label>
+                                                <span id="ipAddress" className="font-color-blue">-</span></li>
+                                            <li>
+                                                <label>地理位置</label>
+                                                <span id="ipGeoLocation">-</span></li>
+                                            <li>
+                                                <label>经度</label>
+                                                <span id="ipLongitude">-</span></li>
+                                            <li>
+                                                <label>纬度</label>
+                                                <span id="ipLatitude">-</span></li>
+                                            <li>
+                                                <label>运营商</label>
+                                                <span id="ipIsp">-</span></li>
+                                            <li>
+                                                <label>IP类型</label>
+                                                <span id="ipType">未知</span></li>
+                                            <li>
+                                                <label>IP风险评分</label>
+                                                <span id="ipRiskScore">0</span></li>
+                                        </ul>
+                                        <ul className="activity-list ip-list ipJudge">
+                                            <li>
+                                                <label>真实IP</label>
+                                                <span id="trueIpAddress" className="font-color-blue">-</span></li>
+                                            <li>
+                                                <label>地理位置</label>
+                                                <span id="trueGeoLocation">-</span></li>
+                                            <li>
+                                                <label>经度</label>
+                                                <span id="trueIpLongitude">-</span></li>
+                                            <li>
+                                                <label>纬度</label>
+                                                <span id="trueIpLatitude">-</span></li>
+                                            <li>
+                                                <label>运营商</label>
+                                                <span id="trueIpIsp">-</span></li>
+                                            <li>
+                                                <label>IP类型</label>
+                                                <span id="trueIpType">未知</span></li>
+                                            <li>
+                                                <label>IP风险评分</label>
+                                                <span id="trueIpRiskScore">0</span></li>
+                                        </ul>
+                                        <ul className="activity-list ip-list ipJudge">
+                                            <li>
+                                                <label>代理检测</label>
+                                                <span id="proxyIs">否</span></li>
+                                            <li>
+                                                <label>代理类型</label>
+                                                <span id="proxyType">-</span></li>
+                                            <li>
+                                                <label>代理端口</label>
+                                                <span id="proxyPort">-</span></li>
+                                            <li>
+                                                <label>行为历史</label>
+                                                <span id="proxyHistory">-</span></li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
+                        <div id="mobilePhoneInfo" className="box activity">
+                            <div className="activity-title">
+                                <h2>手机号信息</h2>
+                            </div>
+                            <div className="activity-content">
+                                <ul className="activity-list mobile-list">
+                                    <li>
+                                        <label>手机号</label>
+                                        <span id="mobileNumber" className="font-color-blue">15145175976</span>
+                                    </li>
+                                    <li>
+                                        <label>运营商</label>
+                                        <span id="mobileCarriers">-</span>
+                                    </li>
+                                </ul>
+                                <ul className="activity-list mobile-list">
+                                    <li>
+                                        <label>归属地</label>
+                                        <span id="mobileAttributions">-</span>
+                                    </li>
+                                    <li>
+                                        <label>卡种</label>
+                                        <span id="mobileCardType">-</span>
+                                    </li>
+                                </ul>
+                                <ul className="activity-list mobile-list">
+                                    <li>
+                                        <label>虚假号码</label>
+                                        <span id="mobileUnrealNumber">否</span>
+                                    </li>
+                                    <li>
+                                        <label>通信小号</label>
+                                        <span id="mobileTrumpet">否</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="deviceInfo" className="box activity">
+                            <div className="activity-title">
+                                <h2>设备环境</h2>
+                            </div>
+                            <div className="activity-content">
+                                <div id="device_exception">获取失败; 没有传递设备指纹参数</div>
+                            </div>
+                        </div>
+                        <section id="fieldInfo" className="box activity">
+                            <div className="activity-title">
+                                <h2>业务数据</h2>
+                            </div>
+                            <div className="activity-content">
+                                <ul className="activity-list field-base-info tem-hide">
+                                    <li>
+                                        <label>设备智能ID</label>
+                                        <span id="smartId"></span></li>
+                                    <li>
+                                        <label>事件时间</label>
+                                        <span id="eventTime">2017-08-29 09:30:56</span></li>
+                                </ul>
+                                <ul className="activity-list field-other-info">
+                                    <li><label>身份证归属区县</label><span id="idCardCounty">肇东市</span></li>
+                                    <li className="tem-hide"><label>合作方标示</label><span id="partnerCode">huiry</span></li>
+                                    <li><label>借款人手机</label><span id="accountMobile">15145175976</span></li><li><label>借款人姓名</label><span id="accountName">霍志敏</span></li>
+                                    <li><label>手机号格式校验</label><span id="mobileFormatVerify">true</span></li><li><label>借款人身份证</label><span id="idNumber">232303196605203239</span></li>
+                                    <li><label>调用ID</label><span id="sequenceId">1503970256666280T0B5655405742149</span></li><li><label>手机归属城市</label><span id="mobileAddressCity">哈尔滨市</span></li>
+                                    <li><label>身份证解析年龄</label><span id="idAge">51</span></li><li><label>合作方密钥</label><span id="partnerKey">0a0c5a7e14b743fcbf9fab94b2e0d224</span></li>
+                                    <li><label>事件发生星期</label><span id="eventOccurWeek">2</span></li><li><label>身份证归属省份</label><span id="idCardProvince">黑龙江省</span></li>
+                                    <li className="tem-hide"><label>应用名</label><span id="appName">huiry_web</span></li><li><label>手机号后8位</label><span id="mobileL8">45175976</span></li>
+                                    <li><label>手机归属省份</label><span id="mobileAddressProvince">黑龙江省</span></li><li><label>身份证格式校验</label><span id="idFormatVerify">true</span></li>
+                                    <li><label>身份证归属城市</label><span id="idCardCity">绥化地区</span></li>
+                                </ul>
+                            </div>
+                        </section>
                     </div>
+                    <a href="javascript:void(0);" id="slideControler" onClick={this.closeDetail.bind(this)} style={{top: "159.5px"}}/>
                 </div>
             </div>
         )
     }
 }
+function progressCounter(element, radius, border, color, end) {
 
+
+    // Basic setup
+    // ------------------------------
+
+    // Main variables
+    var d3Container = d3.select(element),
+        startPercent = 0,
+        iconSize = 32,
+        endPercent = end,
+        twoPi = Math.PI * 2,
+        formatPercent = d3.format('.0%'),
+        boxSize = radius * 2;
+
+    // Values count
+    var count = Math.abs((endPercent - startPercent) / 0.01);
+
+    // Values step
+    var step = endPercent < startPercent ? -0.01 : 0.01;
+
+
+
+    // Create chart
+    // ------------------------------
+
+    // Add SVG element
+    var container = d3Container.append('svg');
+
+    // Add SVG group
+    var svg = container
+        .attr('width', boxSize)
+        .attr('height', boxSize)
+        .append('g')
+        .attr('transform', 'translate(' + (boxSize / 2) + ',' + (boxSize / 2) + ')');
+
+
+
+    // Construct chart layout
+    // ------------------------------
+
+    // Arc
+    var arc = d3.svg.arc()
+        .startAngle(0)
+        .innerRadius(radius)
+        .outerRadius(radius - border);
+
+
+
+    //
+    // Append chart elements
+    //
+
+    // Paths
+    // ------------------------------
+
+    // Background path
+    svg.append('path')
+        .attr('class', 'd3-progress-background')
+        .attr('d', arc.endAngle(twoPi))
+        .style('fill', '#eee');
+
+    // Foreground path
+    var foreground = svg.append('path')
+        .attr('class', 'd3-progress-foreground')
+        .attr('filter', 'url(#blur)')
+        .style('fill', color)
+        .style('stroke', color);
+
+    // Front path
+    var front = svg.append('path')
+        .attr('class', 'd3-progress-front')
+        .style('fill', color)
+        .style('fill-opacity', 1);
+
+
+
+    // Text
+    // ------------------------------
+
+    // Percentage text value
+
+    // Icon
+    d3.select(element)
+        .append("div")
+        .attr("class", "counter-icon")
+        .attr('style', 'top: ' + ((boxSize - iconSize) / 2 - 9) + 'px')
+        .text(count);
+
+    // Animation
+    // ------------------------------
+
+    // Animate path
+    function updateProgress(progress) {
+        foreground.attr('d', arc.endAngle(twoPi * progress));
+        front.attr('d', arc.endAngle(twoPi * progress));
+    }
+
+    // Animate text
+    var progress = startPercent;
+    (function loops() {
+        updateProgress(progress);
+        if (count > 0) {
+            count--;
+            progress += step;
+            setTimeout(loops, 10);
+        }
+    })();
+}
 function mapStateToProps(state) {
     const {commonReducer}=state;
     return {

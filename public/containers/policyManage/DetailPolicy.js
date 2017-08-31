@@ -5,6 +5,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {browserHistory} from 'react-router'
+import FieldsSelect from "./FieldsSelect"
 
 class DetailPolicy extends Component{
     constructor(props) {
@@ -52,49 +53,86 @@ class DetailPolicy extends Component{
         var panels1 = [];
         var datas=[
             {
-                id:"collapsible-controls-group1",
-                data:"身份证格式校验错误"
-            },
-            {
-                id:"collapsible-controls-group2",
-                data:"身份证不是二代身份证"
-            },
-            {
-                id:"collapsible-controls-group3",
-                data:"身份证归属地位于高风险较为集中地区"
-            },
-            {
-                id:"collapsible-controls-group4",
-                data:"手机号格式校验错误"
-            },
-            {
-                id:"collapsible-controls-group5",
-                data:"手机号命中虚假号码库"
+                id:"rule-1",
+                data:"使用贷记卡平均授信额度"
+            },{
+                id:"rule-2",
+                data:"贷记卡平均授信额度"
+            },{
+                id:"rule-3",
+                data:"贷记卡距现在的时间"
+            },{
+                id:"rule-4",
+                data:"24个月查询次数"
+            },{
+                id:"rule-5",
+                data:"使用贷记卡担保方式为信用免担保的数目"
+            },{
+                id:"rule-6",
+                data:"贷记卡平均使用年限"
+            },{
+                id:"rule-7",
+                data:"使用的贷款中其他贷款的平均金额"
+            },{
+                id:"rule-8",
+                data:"使用其他贷款余额占正在使用的其他贷款合同总额的比例"
+            },{
+                id:"rule-9",
+                data:"使用准贷记卡平均授信额度"
+            },{
+                id:"rule-10",
+                data:"贷记卡授信额度为1或者0的账户数"
+            },{
+                id:"rule-11",
+                data:"贷款中其他贷款的平均金额"
+            },{
+                id:"rule-12",
+                data:"贷款经营贷的平均贷款金额"
+            },{
+                id:"rule-13",
+                data:"活贷记卡平均授信额度"
+            },{
+                id:"rule-14",
+                data:"使用的贷款经营贷的平均贷款金额"
+            },{
+                id:"rule-15",
+                data:"经营性贷款平均期限"
+            },{
+                id:"rule-16",
+                data:"使用的经营性贷款平均期限"
+            },{
+                id:"rule-17",
+                data:"3个月新开其他贷款的平均金额"
+            },{
+                id:"rule-18",
+                data:"一次其他贷款距现在的时间"
+            },{
+                id:"rule-19",
+                data:"准贷记卡距现在的时间"
+            },{
+                id:"rule-20",
+                data:"一次经营性贷款距现在的时间"
             }
         ];
         var datas1=[
             {
-                id:"rule-define-group1",
+                id:"rule-define-1",
                 data:"2小时内设备关联的ip归属城市"
-            },
-            {
-                id:"rule-define-group2",
+            },{
+                id:"rule-define-2",
                 data:"3个月内身份证关联借款信息数"
-            },
-            {
-                id:"rule-define-group3",
+            },{
+                id:"rule-define-3",
                 data:"3个月内借款信息关联身份证数"
-            },
-            {
-                id:"rule-define-group4",
+            },{
+                id:"rule-define-4",
                 data:"7天内手机号申请次数"
-            },
-            {
-                id:"rule-define-group5",
+            },{
+                id:"rule-define-5",
                 data:"7天内身份证申请次数"
             }
         ];
-        datas.forEach(function (data) {
+        datas.forEach(function (data,index) {
             var panel = <div className="panel panel-white">
                 <div className="panel-heading">
                     <h6 className="panel-title">
@@ -154,94 +192,212 @@ class DetailPolicy extends Component{
                                 </div>
                             </div>
                             <div className="p-rc-cdsm">
-                                <div className="form-group condition-single-item" style={{marginLeft:0,marginRight:0}}>
+                                <div className="form-group condition-single-item" style={{display:index==0?"block":"none",marginLeft:0,marginRight:0}}>
                                     <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
-                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
-                                            <option value={1}>[系统][字段] 应用名</option>
-                                            <option value={2}>[系统][字段] 事件时间</option>
-                                            <option value={3}>[系统][字段] 事件标识</option>
-                                            <option value={4}>[系统][字段] 借款人工作单位</option>
-                                            <option value={5}>[系统][字段] 借贷金额</option>
-                                            <option value={6}>[系统][字段] 借款人账号</option>
-                                        </select>
+                                        <FieldsSelect showIndex={0} datas={datas}/>
                                         <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
                                             <option value={1}>等于</option>
-                                            <option value={2}>包含</option>
-                                            <option value={3}>前缀</option>
-                                            <option value={4}>不包含</option>
-                                            <option value={5}>不等于</option>
-                                            <option value={6}>后缀</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
                                         </select>
-                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
-                                            <option value={0}>空值</option>
-                                            <option value={1}>[系统][字段] 当前 应用名</option>
-                                            <option value={2}>[系统][字段] 当前 事件时间</option>
-                                            <option value={3}>[系统][字段] 当前 事件标识</option>
-                                            <option value={4}>[系统][字段] 当前 借款人工作单位</option>
-                                            <option value={5}>[系统][字段] 当前 借贷金额</option>
-                                            <option value={6}>[系统][字段] 当前 借款人账号</option>
-                                            <option value={7}>[系统][字段] 当前 test</option>
-                                        </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control" defaultValue={20} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>万元</span>
+                                            </div>
+                                        </div>
                                         <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
                                         <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
                                     </div>
-                                    <div className="col-lg-12 form-inline" style={{padding:"10px 0 10px 164px"}}>
-                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
-                                            <option value={1}>[系统][字段] 应用名</option>
-                                            <option value={2}>[系统][字段] 事件时间</option>
-                                            <option value={3}>[系统][字段] 事件标识</option>
-                                            <option value={4}>[系统][字段] 借款人工作单位</option>
-                                            <option value={5}>[系统][字段] 借贷金额</option>
-                                            <option value={6}>[系统][字段] 借款人账号</option>
-                                        </select>
+                                </div>
+                                <div className="form-group condition-single-item" style={{display:index==1?"block":"none",marginLeft:0,marginRight:0}}>
+                                    <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
+                                        <FieldsSelect showIndex={1} datas={datas}/>
                                         <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
                                             <option value={1}>等于</option>
-                                            <option value={2}>包含</option>
-                                            <option value={3}>前缀</option>
-                                            <option value={4}>不包含</option>
-                                            <option value={5}>不等于</option>
-                                            <option value={6}>后缀</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
                                         </select>
-                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
-                                            <option value={0}>空值</option>
-                                            <option value={1}>[系统][字段] 当前 应用名</option>
-                                            <option value={2}>[系统][字段] 当前 事件时间</option>
-                                            <option value={3}>[系统][字段] 当前 事件标识</option>
-                                            <option value={4}>[系统][字段] 当前 借款人工作单位</option>
-                                            <option value={5}>[系统][字段] 当前 借贷金额</option>
-                                            <option value={6}>[系统][字段] 当前 借款人账号</option>
-                                            <option value={7}>[系统][字段] 当前 test</option>
-                                        </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control" defaultValue={20} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>万元</span>
+                                            </div>
+                                        </div>
                                         <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
                                         <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
                                     </div>
-                                    <div className="col-lg-12 form-inline" style={{padding:"10px 0 10px 164px"}}>
-                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
-                                            <option value={1}>[系统][字段] 应用名</option>
-                                            <option value={2}>[系统][字段] 事件时间</option>
-                                            <option value={3}>[系统][字段] 事件标识</option>
-                                            <option value={4}>[系统][字段] 借款人工作单位</option>
-                                            <option value={5}>[系统][字段] 借贷金额</option>
-                                            <option value={6}>[系统][字段] 借款人账号</option>
-                                        </select>
+                                </div>
+                                <div className="form-group condition-single-item" style={{display:index==2?"block":"none",marginLeft:0,marginRight:0}}>
+                                    <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
+                                        <FieldsSelect showIndex={2} datas={datas}/>
                                         <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
                                             <option value={1}>等于</option>
-                                            <option value={2}>包含</option>
-                                            <option value={3}>前缀</option>
-                                            <option value={4}>不包含</option>
-                                            <option value={5}>不等于</option>
-                                            <option value={6}>后缀</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
                                         </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control" defaultValue={30} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>天</span>
+                                            </div>
+                                        </div>
+                                        <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
+                                        <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
+                                    </div>
+                                </div>
+                                <div className="form-group condition-single-item" style={{display:index==3?"block":"none",marginLeft:0,marginRight:0}}>
+                                    <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
+                                        <FieldsSelect showIndex={3} datas={datas}/>
                                         <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
-                                            <option value={0}>空值</option>
-                                            <option value={1}>[系统][字段] 当前 应用名</option>
-                                            <option value={2}>[系统][字段] 当前 事件时间</option>
-                                            <option value={3}>[系统][字段] 当前 事件标识</option>
-                                            <option value={4}>[系统][字段] 当前 借款人工作单位</option>
-                                            <option value={5}>[系统][字段] 当前 借贷金额</option>
-                                            <option value={6}>[系统][字段] 当前 借款人账号</option>
-                                            <option value={7}>[系统][字段] 当前 test</option>
+                                            <option value={1}>等于</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
                                         </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control" defaultValue={100} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>次</span>
+                                            </div>
+                                        </div>
+                                        <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
+                                        <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
+                                    </div>
+                                </div>
+                                <div className="form-group condition-single-item" style={{display:index==4?"block":"none",marginLeft:0,marginRight:0}}>
+                                    <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
+                                        <FieldsSelect showIndex={4} datas={datas}/>
+                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
+                                            <option value={1}>等于</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
+                                        </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control" defaultValue={50} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>个</span>
+                                            </div>
+                                        </div>
+                                        <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
+                                        <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
+                                    </div>
+                                </div>
+                                <div className="form-group condition-single-item" style={{display:index==5?"block":"none",marginLeft:0,marginRight:0}}>
+                                    <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
+                                        <FieldsSelect showIndex={5} datas={datas}/>
+                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
+                                            <option value={1}>等于</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
+                                        </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control" defaultValue={10} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>年</span>
+                                            </div>
+                                        </div>
+                                        <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
+                                        <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
+                                    </div>
+                                </div>
+                                <div className="form-group condition-single-item" style={{display:index==6?"block":"none",marginLeft:0,marginRight:0}}>
+                                    <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
+                                        <FieldsSelect showIndex={6} datas={datas}/>
+                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
+                                            <option value={1}>等于</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
+                                        </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control" defaultValue={10} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>万</span>
+                                            </div>
+                                        </div>
+                                        <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
+                                        <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
+                                    </div>
+                                </div>
+                                <div className="form-group condition-single-item" style={{display:index==7?"block":"none",marginLeft:0,marginRight:0}}>
+                                    <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
+                                        <FieldsSelect showIndex={7} datas={datas}/>
+                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
+                                            <option value={1}>等于</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
+                                        </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control text-right" defaultValue={40} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>%</span>
+                                            </div>
+                                        </div>
+                                        <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
+                                        <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
+                                    </div>
+                                </div>
+                                <div className="form-group condition-single-item" style={{display:index==8?"block":"none",marginLeft:0,marginRight:0}}>
+                                    <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
+                                        <FieldsSelect showIndex={8} datas={datas}/>
+                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
+                                            <option value={1}>等于</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
+                                        </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control text-right" defaultValue={10} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>万</span>
+                                            </div>
+                                        </div>
+                                        <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
+                                        <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
+                                    </div>
+                                </div>
+                                <div className="form-group condition-single-item" style={{display:index==9?"block":"none",marginLeft:0,marginRight:0}}>
+                                    <div className="col-lg-12 form-inline" style={{padding:"20px 0 10px 164px"}}>
+                                        <FieldsSelect showIndex={9} datas={datas}/>
+                                        <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
+                                            <option value={1}>等于</option>
+                                            <option value={2}>小于等于</option>
+                                            <option value={2}>小于</option>
+                                            <option value={2}>不等于</option>
+                                            <option value={3}>大于</option>
+                                            <option value={4}>大于等于</option>
+                                        </select>
+                                        <div className="input-group">
+                                            <input type="text" className="form-control text-right" defaultValue={80} style={{width:"240px",marginLeft:"10px"}}/>
+                                            <div className="input-group-addon">
+                                                <span>个</span>
+                                            </div>
+                                        </div>
                                         <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
                                         <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>
                                     </div>
@@ -263,6 +419,9 @@ class DetailPolicy extends Component{
                                             <option value={4}>[系统][字段] 借款人工作单位</option>
                                             <option value={5}>[系统][字段] 借贷金额</option>
                                             <option value={6}>[系统][字段] 借款人账号</option>
+                                            <option value={21}>{"[系统][字段] test"}</option>
+                                            <option value={22}>{"[系统][字段] test2"}</option>
+                                            <option value={23}>{"[系统][字段] test3"}</option>
                                         </select>
                                         <label style={{textAlign: 'center',marginLeft:"10px"}}>{"等于"}</label>
                                         <select id="classify" className="form-control" style={{width:"240px",marginLeft:"10px"}}>
@@ -274,6 +433,8 @@ class DetailPolicy extends Component{
                                             <option value={5}>[系统][字段] 当前 借贷金额</option>
                                             <option value={6}>[系统][字段] 当前 借款人账号</option>
                                             <option value={7}>[系统][字段] 当前 test</option>
+                                            <option value={7}>[系统][字段] 当前 test2</option>
+                                            <option value={7}>[系统][字段] 当前 test3</option>
                                         </select>
                                         <i className="icon-trash" style={{cursor:"pointer",marginLeft:"10px",color:"red"}}/>
                                         <i className="icon-plus2" style={{cursor:"pointer",marginLeft:"10px"}}/>

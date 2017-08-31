@@ -115,19 +115,19 @@ class SystemConfiguration extends Component {
                 </li>
                 <li className="left active" onClick={this._leftMenuClick.bind(this, '/statisticalReport')}><a
                     href="javascript:void(0)"><i
-                    className="icon-home4"></i> <span>{"统计报表"}</span></a></li>
+                    className="icon-stats-bars2"></i> <span>{"统计报表"}</span></a></li>
                 <li className="left" onClick={this._leftMenuClick.bind(this, '/policyManage')}><a
                     href="javascript:void(0)"><i
-                    className="icon-home4"></i> <span>{"策略管理"}</span></a></li>
+                    className=" icon-strategy"></i> <span>{"策略管理"}</span></a></li>
                 <li className="left" onClick={this._leftMenuClick.bind(this, '/fieldsManage')}><a
                     href="javascript:void(0)"><i
-                    className="icon-home4"></i> <span>{"字段管理"}</span></a></li>
+                    className="icon-file-word"></i> <span>{"字段管理"}</span></a></li>
                 <li className="left" onClick={this._leftMenuClick.bind(this, '/listManage')}><a
                     href="javascript:void(0)"><i
-                    className="icon-home4"></i> <span>{"列表管理"}</span></a></li>
+                    className="icon-list2"></i> <span>{"列表管理"}</span></a></li>
                 <li className="left" onClick={this._leftMenuClick.bind(this, '/callManage')}><a
                     href="javascript:void(0)"><i
-                    className="icon-home4"></i> <span>{"调用管理"}</span></a></li>
+                    className=" icon-megaphone"></i> <span>{"调用管理"}</span></a></li>
             </ul>
         )
     }
@@ -161,10 +161,10 @@ class PerformanceMonitoringMenu extends Component {
                 </li>
                 <li className="left active" onClick={this._leftMenuClick.bind(this, '/dashboard')}><a
                     href="javascript:void(0)"><i
-                    className="icon-home4"></i> <span>{"风险趋势"}</span></a></li>
+                    className=" icon-stats-growth2"></i> <span>{"风险趋势"}</span></a></li>
                 <li className="left" onClick={this._leftMenuClick.bind(this, '/dashboard')}><a
                     href="javascript:void(0)"><i
-                    className="icon-home4"></i> <span>{"风险指标"}</span></a></li>
+                    className="icon-target2"></i> <span>{"风险指标"}</span></a></li>
             </ul>
 
         )
@@ -199,10 +199,10 @@ class Elastic extends Component {
                 </li>
                 <li className="left active" onClick={this._leftMenuClick.bind(this, '/preAudit')}><a
                     href="javascript:void(0)"><i
-                    className="icon-home4"></i> <span>{"贷前审核"}</span></a></li>
+                    className="icon-pencil5"></i> <span>{"贷前审核"}</span></a></li>
                 <li className="left" onClick={this._leftMenuClick.bind(this, '/afterLoanMonitor')}><a
                     href="javascript:void(0)"><i
-                    className="icon-home4"></i> <span>{"贷后监控"}</span></a></li>
+                    className="icon-laptop"></i> <span>{"贷后监控"}</span></a></li>
             </ul>
         )
     }

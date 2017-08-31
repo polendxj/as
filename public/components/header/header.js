@@ -79,10 +79,10 @@ class TopMenus extends Component {
                 browserHistory.push("/dashboard")
                 break;
             case 1:
-                browserHistory.push("/SysManager/Service/CSE")
+                browserHistory.push("/statisticalReport")
                 break;
             case 2:
-                browserHistory.push("/Statistic/Areas")
+                browserHistory.push("/preAudit")
                 break;
             case 3:
                 browserHistory.push("/UserManager/Admin")
@@ -116,7 +116,7 @@ class TopMenus extends Component {
                 <li
                     className="dropdown dropdown-user topmenu" onClick={this._menuChange.bind(this, 2, false)}>
                     <a className="dropdown-toggle" data-toggle="dropdown">
-                        <i className="icon-stats-bars2" style={{fontSize: "12px"}}></i> <span
+                        <i className="icon-vcard" style={{fontSize: "12px"}}></i> <span
                         style={this.span_style}>{"信贷服务"}</span>
                     </a>
                 </li>

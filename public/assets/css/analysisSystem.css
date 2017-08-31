@@ -482,6 +482,15 @@ ul.activity-list > li > label {
     width: 48%;
     box-sizing: border-box;
 }
+ul.activity-list>li>span.review {
+    color: #ff9800;
+}
+ul.activity-list>li>span.accept {
+    color: #00bfa5;
+}
+ul.activity-list>li>span.reject {
+    color: #ef5350;
+}
 .activity-hit .activity-hit-content > ul {
     padding: 0 1em;
     display: inline-block;
@@ -534,4 +543,53 @@ ul.activity-list > li > label {
     position: absolute;
     left: 0px;
     background: url(../images/pageIcon.png) -10px -30px;
+}
+.finalResult.accept {
+    border-color: #A7DB65;
+}
+.finalResult.review {
+    border-color: #F8D436;
+}
+.finalResult.reject {
+    border-color: #FF6C5C;
+}
+.finalResult {
+    padding: 2px 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 30px;
+    font-size: 12px;
+    font-family: arial;
+    width: 102px;
+}
+.finalResult.reject .riskScore {
+    background-color: #FF6C5C;
+}
+.finalResult.review .riskScore {
+    background-color: #F8D436;
+}
+.finalResult.accept .riskScore {
+    background-color: #A7DB65;
+}
+.finalResult .riskScore {
+    display: inline-block;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    left: -8px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: #fff;
+}
+.finalResult.reject .riskStatus, td.REJECT {
+    color: #FF6C5C;
+}
+.finalResult.review .riskStatus {
+    color: #F8D436;
+}
+.finalResult.accept .riskStatus, td.ACCEPT {
+    color: #A7DB65;
+}
+.finalResult .riskStatus {
+    color: #ccc;
 }

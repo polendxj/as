@@ -76,8 +76,12 @@ class PreAudit extends Component{
                                                                            textAlign: 'right'
                                                                        }}>{"申请借款金额"}</label>
                                                                 <div className="col-lg-3">
-                                                                    <input name="name" type="text" className="form-control" autoComplete="off" style={style}/>
-                                                                    <span style={{paddingLeft:"10px"}}>元</span>
+                                                                    <div className="input-group">
+                                                                        <input type="text" className="form-control"/>
+                                                                        <div className="input-group-addon">
+                                                                            <span>元</span>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                                 <label className="col-lg-1 control-label"
                                                                        style={{
@@ -86,15 +90,15 @@ class PreAudit extends Component{
                                                                 <div className="col-lg-3">
                                                                     <div className="input-group">
                                                                         <input type="text" className="form-control"/>
-                                                                            <div className="input-group-btn">
-                                                                                <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown">月
-                                                                                    <span className="caret"/>
-                                                                                </button>
-                                                                                <ul className="dropdown-menu dropdown-menu-right">
-                                                                                    <li><a href="#">月</a></li>
-                                                                                    <li><a href="#">天</a></li>
-                                                                                </ul>
-                                                                            </div>
+                                                                        <div className="input-group-btn">
+                                                                            <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown">月
+                                                                                <span className="caret"/>
+                                                                            </button>
+                                                                            <ul className="dropdown-menu dropdown-menu-right">
+                                                                                <li><a href="#">月</a></li>
+                                                                                <li><a href="#">天</a></li>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <label className="col-lg-1 control-label"
@@ -162,7 +166,6 @@ class PreAudit extends Component{
                                                                              }}>{"姓名"}</label>
                                                                 <div className="col-lg-3">
                                                                     <input name="name" type="text" className="form-control" autoComplete="off" style={style}/>
-                                                                    <span style={{paddingLeft:"10px"}}>元</span>
                                                                 </div>
                                                                 <label className="col-lg-1 control-label"
                                                                        style={{
@@ -170,7 +173,6 @@ class PreAudit extends Component{
                                                                        }}>{"身份证号"}</label>
                                                                 <div className="col-lg-3">
                                                                     <input name="name" type="text" className="form-control" autoComplete="off" style={style}/>
-                                                                    <span style={{paddingLeft:"10px"}}>元</span>
                                                                 </div>
                                                                 <label className="col-lg-1 control-label"
                                                                        style={{
@@ -178,7 +180,6 @@ class PreAudit extends Component{
                                                                        }}>{"手机号码"}</label>
                                                                 <div className="col-lg-3">
                                                                     <input name="name" type="text" className="form-control" autoComplete="off" style={style}/>
-                                                                    <span style={{paddingLeft:"10px"}}>元</span>
                                                                 </div>
                                                             </div>
                                                             <div className="form-group form-inline">

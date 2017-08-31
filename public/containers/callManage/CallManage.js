@@ -4,6 +4,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
+import FinalResult from "./FinalResult"
 
 class CallManage extends Component{
     constructor(props) {
@@ -46,10 +47,14 @@ class CallManage extends Component{
     _search(){
 
     }
-    showDetail(){
-        console.log("aaa");
+    showDetail(status,score){
+        $("#slideInfoDetail").animate({top: "61px", right:"-1500px"});
+        $("#riskCoefficient").text(score);
+        $("#riskStatus").removeClass();
+        $("#riskStatus").addClass(status);
+        $("#riskStatus").text(status.toUpperCase());
         $("#slideInfoDetail").animate({top: "61px", right:"0px"});
-        progressCounter('#goal-progress', 50, 5, "#E6C85A", 0.35);
+        progressCounter('#goal-progress', 50, 5, "#E6C85A", score/100);
     }
     closeDetail(){
         $("#slideInfoDetail").animate({top: "61px", right:"-1500px"});
@@ -130,8 +135,8 @@ class CallManage extends Component{
                                                     <thead>
                                                     <tr style={{fontWeight:'bold'}}>
                                                         <th className="col-md-2 text-bold text-center">{"事件发生时间"}</th>
-                                                        <th className="col-md-2 text-bold text-center">{"策略集名称"}</th>
-                                                        <th className="col-md-1 text-bold text-center">{"评估结果"}</th>
+                                                        <th className="col-md-1 text-bold text-center">{"策略集名称"}</th>
+                                                        <th className="col-md-2 text-bold text-center">{"评估结果"}</th>
                                                         <th className="col-md-1 text-bold text-center">{"审核结果"}</th>
                                                         <th className="col-md-1 text-bold text-center">{"事件类型"}</th>
                                                         <th className="col-md-1 text-bold text-center">{"账户"}</th>
@@ -144,10 +149,12 @@ class CallManage extends Component{
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr onClick={this.showDetail.bind(this)}>
+                                                    <tr onClick={this.showDetail.bind(this,"accept",5)}>
                                                         <td className="text-center">{"2017-08-27"}</td>
                                                         <td className="text-center">{"借款事件_网站_20170406"}</td>
-                                                        <td className="text-center">{"通过"}</td>
+                                                        <td className="text-center">
+                                                            <FinalResult score={5} status={"accept"}/>
+                                                        </td>
                                                         <td className="text-center">{"- -"}</td>
                                                         <td className="text-center">{"借款事件"}</td>
                                                         <td className="text-center">{"- -"}</td>
@@ -173,10 +180,10 @@ class CallManage extends Component{
                                                             </ul>
                                                         </td>
                                                     </tr>
-                                                    <tr onClick={this.showDetail.bind(this)} style={{backgroundColor:"#F8F8F8"}}>
+                                                    <tr onClick={this.showDetail.bind(this,"review",45)} style={{backgroundColor:"#F8F8F8"}}>
                                                         <td className="text-center">{"2017-08-27"}</td>
                                                         <td className="text-center">{"借款事件"}</td>
-                                                        <td className="text-center">{"人工审核"}</td>
+                                                        <td className="text-center"><FinalResult score={45} status={"review"}/></td>
                                                         <td className="text-center">{"- -"}</td>
                                                         <td className="text-center">{"借款事件"}</td>
                                                         <td className="text-center">{"- -"}</td>
@@ -202,10 +209,10 @@ class CallManage extends Component{
                                                             </ul>
                                                         </td>
                                                     </tr>
-                                                    <tr onClick={this.showDetail.bind(this)}>
+                                                    <tr onClick={this.showDetail.bind(this,"reject",80)}>
                                                         <td className="text-center">{"2017-08-27"}</td>
                                                         <td className="text-center">{"借款事件"}</td>
-                                                        <td className="text-center">{"拒绝"}</td>
+                                                        <td className="text-center"><FinalResult score={80} status={"reject"}/></td>
                                                         <td className="text-center">{"- -"}</td>
                                                         <td className="text-center">{"借款事件"}</td>
                                                         <td className="text-center">{"- -"}</td>
@@ -409,8 +416,8 @@ class CallManage extends Component{
                                         </div>
                                         <div className="activity-hit-content hit-list">
                                             <ul className="activity-list activity-hit-policy" style={{overflow: "hidden", marginTop: "10px", marginBottom: "10px"}}>
-                                                <li><label>策略名称</label><span>异常借款</span></li><li><label>风险状态</label><span className="accept">Accept</span></li>
-                                                <li><label>风险系数</label><span>5</span></li><li><label>风险类型</label><span>异常借款</span></li>
+                                                <li><label>策略名称</label><span>异常借款</span></li><li><label>风险状态</label><span id="riskStatus" className="accept">Accept</span></li>
+                                                <li><label>风险系数</label><span id="riskCoefficient">5</span></li><li><label>风险类型</label><span>异常借款</span></li>
                                                 <li><label>命中规则：</label><ul className="hit-policy-rule-list has-detail"><li>
                                                     <a>7天内设备或身份证或手机号申请次数过多</a></li></ul></li></ul></div>
                                     </div>

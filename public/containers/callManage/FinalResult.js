@@ -21,7 +21,7 @@ class FinalResult extends Component{
     render(){
         var {score,status} = this.props;
         return (
-            <div className={"finalResult "+status} style={{lineHeight: '26px',margin:'0 auto'}}>
+            <div className={"finalResult "+status} style={{lineHeight: '26px',float:"left"}}>
                 <span className="riskScore">{score}</span>
                 <span className="riskStatus">{status.toUpperCase()}</span>
             </div>

@@ -559,7 +559,7 @@ ul.activity-list>li>span.reject {
     border-radius: 30px;
     font-size: 12px;
     font-family: arial;
-    width: 102px;
+    width: 105px;
 }
 .finalResult.reject .riskScore {
     background-color: #FF6C5C;
@@ -592,4 +592,22 @@ ul.activity-list>li>span.reject {
 }
 .finalResult .riskStatus {
     color: #ccc;
+}
+
+.table-call>tbody>tr>td{
+    padding:0 !important;
+    border-top:0;
+}
+.call-fields{
+    position: relative;
+    width: 23%;
+    height:100px;
+    float:left;
+    margin-right:20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.05);
 }

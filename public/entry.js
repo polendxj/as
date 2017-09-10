@@ -20,6 +20,7 @@ import ListManage from './containers/listManage/ListManage'
 import PreAudit from './containers/preAudit/PreAudit'
 import AfterLoanMonitor from './containers/afterLoanMonitor/AfterLoanMonitor'
 import CallManage from './containers/callManage/CallManage'
+import CallDetail from './containers/callManage/CallDetail'
 
 let store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
@@ -40,6 +41,7 @@ render(
                 <Route path="/preAudit" component={PreAudit}/>
                 <Route path="/afterLoanMonitor" component={AfterLoanMonitor}/>
                 <Route path="/callManage" component={CallManage}/>
+                <Route path="/CallDetail" component={CallDetail}/>
             </Route>
         </Router>
     </Provider>,

@@ -32,13 +32,14 @@ class Logo extends Component {
         return (
             <div className="navbar-header">
                 <span id="logoText" style={this.logo_style}></span>
-                <a className="navbar-brand" href="index.html"><img src="/assets/images/logo_light.png"
+                <a className="navbar-brand" href="index.html">{/*<img src="/assets/images/logo_light.png"
                                                                    style={{
                                                                        width: "90px",
                                                                        height: "29px",
                                                                        marginLeft: '28px',
                                                                        marginTop: '-5px'
-                                                                   }} alt=""/>
+                                                                   }} alt=""/>*/}
+                                                                   <span style={{fontSize:"18px",marginLeft:"20px"}}>Logo</span>
 
                 </a>
                 <ul className="nav navbar-nav visible-xs-block">

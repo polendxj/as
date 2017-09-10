@@ -20,6 +20,7 @@ import ListManage from './containers/listManage/ListManage'
 import PreAudit from './containers/preAudit/PreAudit'
 import AfterLoanMonitor from './containers/afterLoanMonitor/AfterLoanMonitor'
 import CallManage from './containers/callManage/CallManage'
+import CallDetail from './containers/callManage/CallDetail'
 import CallList from './containers/callManage/CallList'
 
 let store = configureStore()
@@ -40,6 +41,7 @@ render(
                 <Route path="/listManage" component={ListManage}/>
                 <Route path="/preAudit" component={PreAudit}/>
                 <Route path="/afterLoanMonitor" component={AfterLoanMonitor}/>
+                <Route path="/CallDetail" component={CallDetail}/>
                 <Route path="/callManage" component={CallList}/>
             </Route>
         </Router>

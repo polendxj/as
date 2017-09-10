@@ -7,6 +7,7 @@ import {bindActionCreators} from 'redux'
 import Highcharts from 'highcharts'
 import SessionAndUsersChartsComponent from '../components/charts/SessionAndUsersChartsComponent'
 import {commonRefresh} from '../actions/Common'
+import {Developing} from '../containers/Developing'
 
 import {alarmTargetTypeFilter, warningLevelFilter, warningLevelColorFilter} from '../components/Tool/Tool'
 
@@ -68,23 +69,6 @@ export default class Dashboard extends Component {
         return (
             <div>
                 <div className="content" style={{position: "relative", padding: "0"}}>
-                    <SessionAndUsersChartsComponent cseStatusInfo={this.cseStatusInfo}
-                                                    csrStatusInfo={this.csrStatusInfo}
-                                                    csmStatusInfo={this.csmStatusInfo}/>
-                    <div>
-
-                    </div>
-                    <div id="layer" style={{width: "100%", height: tableHeight + "px", overflowY: "auto"}}>
-                        <div id="ll" style={{
-                            width: "100%",
-                            height: "51px",
-                            backgroundColor: "#f8f8f8",
-                            position: "absolute",
-                        }}></div>
-                        <iframe src={grafana_url+"/dashboard/db/dashboard?orgId=1"} frameBorder="0"
-                                scrolling="no" id="iframeId" width="100%" height={"1400px"}></iframe>
-                    </div>
-
                 </div>
             </div>
 

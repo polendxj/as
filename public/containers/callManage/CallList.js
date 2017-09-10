@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import FinalResult from "./FinalResult"
 import {commonRefresh} from '../../actions/Common';
+import {browserHistory} from 'react-router'
 
 class CallList extends Component{
     constructor(props) {
@@ -88,6 +89,10 @@ class CallList extends Component{
         var value = "";
         value = value + $("#sort").find("option:selected").text();
         $("#sortInput").val(value);
+    }
+    toDetail(e){
+        e.preventDefault();
+        browserHistory.push("/callDetail");
     }
     render(){
         var tableHeight = ($(window).height() - 130);
@@ -204,6 +209,9 @@ class CallList extends Component{
                                                                                     {"事件类型 借款事件"}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                                     {"应用名称 汇融易_网页"}
                                                                                 </small>
+                                                                            </div>
+                                                                            <div style={{position: 'absolute',right: '20px',top:"6px",cursor:"pointer"}} onClick={this.toDetail.bind(this)}>
+                                                                                <i className="icon-arrow-right13" style={{fontSize:"26px"}}/>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -487,6 +495,9 @@ class CallList extends Component{
                                                                                     {"应用名称 汇融易_网页"}
                                                                                 </small>
                                                                             </div>
+                                                                            <div style={{position: 'absolute',right: '20px',top:"6px",cursor:"pointer"}} onClick={this.toDetail.bind(this)}>
+                                                                                <i className="icon-arrow-right13" style={{fontSize:"26px"}}/>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </h6>
@@ -768,6 +779,9 @@ class CallList extends Component{
                                                                                     {"事件类型 借款事件"}&nbsp;&nbsp;
                                                                                     {"应用名称 汇融易_网页"}
                                                                                 </small>
+                                                                            </div>
+                                                                            <div style={{position: 'absolute',right: '20px',top:"6px",cursor:"pointer"}} onClick={this.toDetail.bind(this)}>
+                                                                                <i className="icon-arrow-right13" style={{fontSize:"26px"}}/>
                                                                             </div>
                                                                         </div>
                                                                     </div>

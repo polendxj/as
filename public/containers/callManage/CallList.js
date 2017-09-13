@@ -17,6 +17,8 @@ class CallList extends Component{
         this._startRefresh=this._startRefresh.bind(this);
     }
     componentDidMount(){
+        barVertical('#riskRatio', 400);
+        pieMultipleNested('#d3-pie-basic',110,10);
         $(".selectbox-custom-icon").selectBoxIt({
             autoWidth: false,
             // Set a custom down arrow icon by adding new CSS class(s)
@@ -189,6 +191,18 @@ class CallList extends Component{
                                                     </div>
                                                 </div>
                                             </div>
+                                            <fieldset className="content-group">
+                                                <div className="panel-body col-md-6">
+                                                    <div className="chart-container">
+                                                        <div className="chart" id="riskRatio"></div>
+                                                    </div>
+                                                </div>
+                                                <div className="panel-body col-md-6">
+                                                    <div className="chart-container text-center">
+                                                        <div className="chart svg-center" id="d3-pie-basic"></div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
                                             <table className="table table-call" style={{marginBottom:'85px'}}>
                                                 <tbody>
                                                 <tr>
@@ -223,17 +237,97 @@ class CallList extends Component{
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    事件标识
+                                                                                    使用贷记卡平均授信额度 （单位：元）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    Loan_web_20170406
+                                                                                    30,000
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    风险系数
+                                                                                    贷记卡距现在的时间 （单位：天）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    3241
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    24个月查询次数
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    181
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    贷记卡平均使用年限
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    0.7
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    贷记卡授信额度为1或者0的账户数
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    2
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    经营性贷款平均期限
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    10
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    一次其他贷款距现在的时间 （单位：天）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    45
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    准贷记卡平均授信额度 （单位：元）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    500,000
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    其他贷款笔数
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    3
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    使用贷记卡过去24个月最大逾期数 （单位：期）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
                                                                                     5
@@ -243,91 +337,87 @@ class CallList extends Component{
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    命中规则
+                                                                                    12个月新开其他贷款的平均金额 （单位：元）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    1个月内查询次数过多
+                                                                                    42,1523.759
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    代理检测
+                                                                                    还款其他贷款过去6个月最大逾期数 （单位：期）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    4
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    还款的经营性贷款456的数目
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    6
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    6个月新开其他贷款的平均期限 （单位：天）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    12,000
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    使用贷记卡担保方式为其他的数目 （单位：元）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    40,000
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    有房贷
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
                                                                                     否
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
-                                                                    </ul>
-                                                                    <ul>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    来源IP
+                                                                                    使用的贷款中经营性贷款担保方式为其他担保的笔数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    10.10.10.10
+                                                                                    12
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    地理位置
+                                                                                    使用的贷款中其他贷款的担保方式为抵押、质押、保证的笔数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    成都市高新区
+                                                                                    2
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    经度
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    128.12
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    纬度
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    25.2
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    运营商
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    卫士通
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    IP类型
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    未知
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    IP风险评分
+                                                                                    卡呆账笔数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
                                                                                     0
@@ -337,136 +427,17 @@ class CallList extends Component{
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    真实IP
+                                                                                    使用准贷记卡过去24个月最大逾期数 （单位：期）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    10.10.10.10
+                                                                                    3
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
+                                                                        <li className="call-fields" style={{cursor:"pointer"}}>
                                                                             <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    手机号
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    15108492765
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    手机运营商
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    联通
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    归属地
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    成都
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    卡种
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    --
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    虚假号码
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    否
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    通信小号
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    否
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    事件时间
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    2017-08-29 09:30:56
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    身份证归属区县
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    肇东市
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    借款人手机
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    15145175976
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    借款人姓名
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    霍志敏
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    手机号格式校验
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    true
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    借款人身份证
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    232303196605203239
+                                                                                <div style={{lineHeight:"50px",textAlign:"center",color:"lightgray"}}>
+                                                                                    <i className=" icon-plus3" style={{fontWeight:"bold"}}></i> 添加属性
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
@@ -508,17 +479,67 @@ class CallList extends Component{
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    事件标识
+                                                                                    使用贷记卡平均授信额度 （单位：元）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    Loan_web_20170406
+                                                                                    30,000
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    风险系数
+                                                                                    贷记卡距现在的时间 （单位：天）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    3241
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    24个月查询次数
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    181
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    贷记卡平均使用年限
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    0.7
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    贷记卡授信额度为1或者0的账户数
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    2
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    经营性贷款平均期限
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    10
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    一次其他贷款距现在的时间 （单位：天）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
                                                                                     45
@@ -528,91 +549,117 @@ class CallList extends Component{
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    命中规则
+                                                                                    准贷记卡平均授信额度 （单位：元）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    1个月内查询次数过多
+                                                                                    500,000
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    代理检测
+                                                                                    其他贷款笔数
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    3
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    使用贷记卡过去24个月最大逾期数 （单位：期）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    5
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    12个月新开其他贷款的平均金额 （单位：元）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    42,1523.759
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    还款其他贷款过去6个月最大逾期数 （单位：期）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    4
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    还款的经营性贷款456的数目
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    6
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    6个月新开其他贷款的平均期限 （单位：天）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    12,000
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    使用贷记卡担保方式为其他的数目 （单位：元）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    40,000
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    有房贷
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
                                                                                     否
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
-                                                                    </ul>
-                                                                    <ul>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    来源IP
+                                                                                    使用的贷款中经营性贷款担保方式为其他担保的笔数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    10.10.10.10
+                                                                                    12
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    地理位置
+                                                                                    使用的贷款中其他贷款的担保方式为抵押、质押、保证的笔数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    成都市高新区
+                                                                                    2
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    经度
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    128.12
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    纬度
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    25.2
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    运营商
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    卫士通
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    IP类型
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    未知
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    IP风险评分
+                                                                                    卡呆账笔数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
                                                                                     0
@@ -622,136 +669,17 @@ class CallList extends Component{
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    真实IP
+                                                                                    使用准贷记卡过去24个月最大逾期数 （单位：期）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    10.10.10.10
+                                                                                    3
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
+                                                                        <li className="call-fields" style={{cursor:"pointer"}}>
                                                                             <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    手机号
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    15108492765
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    手机运营商
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    联通
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    归属地
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    成都
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    卡种
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    --
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    虚假号码
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    否
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    通信小号
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    否
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    事件时间
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    2017-08-29 09:30:56
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    身份证归属区县
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    肇东市
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    借款人手机
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    15145175976
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    借款人姓名
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    霍志敏
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    手机号格式校验
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    true
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    借款人身份证
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    232303196605203239
+                                                                                <div style={{lineHeight:"50px",textAlign:"center",color:"lightgray"}}>
+                                                                                    <i className=" icon-plus3" style={{fontWeight:"bold"}}></i> 添加属性
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
@@ -793,111 +721,187 @@ class CallList extends Component{
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    事件标识
+                                                                                    使用贷记卡平均授信额度 （单位：元）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    Loan_web_20170406
+                                                                                    30,000
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    风险系数
+                                                                                    贷记卡距现在的时间 （单位：天）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    80
+                                                                                    3241
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    命中规则
+                                                                                    24个月查询次数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    1个月内查询次数过多
+                                                                                    181
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    代理检测
+                                                                                    贷记卡平均使用年限
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    0.7
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    贷记卡授信额度为1或者0的账户数
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    2
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    经营性贷款平均期限
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    10
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    一次其他贷款距现在的时间 （单位：天）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    45
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    准贷记卡平均授信额度 （单位：元）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    500,000
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    其他贷款笔数
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    3
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    使用贷记卡过去24个月最大逾期数 （单位：期）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    5
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    12个月新开其他贷款的平均金额 （单位：元）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    42,1523.759
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    还款其他贷款过去6个月最大逾期数 （单位：期）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    4
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    还款的经营性贷款456的数目
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    6
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    6个月新开其他贷款的平均期限 （单位：天）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    12,000
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    使用贷记卡担保方式为其他的数目 （单位：元）
+                                                                                </small>
+                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
+                                                                                    40,000
+                                                                                </div>
+                                                                            </h3>
+                                                                        </li>
+                                                                        <li className="call-fields">
+                                                                            <h3>
+                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
+                                                                                    有房贷
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
                                                                                     否
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
-                                                                    </ul>
-                                                                    <ul>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    来源IP
+                                                                                    使用的贷款中经营性贷款担保方式为其他担保的笔数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    10.10.10.10
+                                                                                    12
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    地理位置
+                                                                                    使用的贷款中其他贷款的担保方式为抵押、质押、保证的笔数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    成都市高新区
+                                                                                    2
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    经度
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    128.12
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    纬度
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    25.2
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    运营商
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    卫士通
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    IP类型
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    未知
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    IP风险评分
+                                                                                    卡呆账笔数
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
                                                                                     0
@@ -907,136 +911,17 @@ class CallList extends Component{
                                                                         <li className="call-fields">
                                                                             <h3>
                                                                                 <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    真实IP
+                                                                                    使用准贷记卡过去24个月最大逾期数 （单位：期）
                                                                                 </small>
                                                                                 <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    10.10.10.10
+                                                                                    3
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
+                                                                        <li className="call-fields" style={{cursor:"pointer"}}>
                                                                             <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    手机号
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    15108492765
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    手机运营商
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    联通
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    归属地
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    成都
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    卡种
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    --
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    虚假号码
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    否
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    通信小号
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    否
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    事件时间
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    2017-08-29 09:30:56
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    身份证归属区县
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    肇东市
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                    </ul>
-                                                                    <ul>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    借款人手机
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    15145175976
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    借款人姓名
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    霍志敏
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    手机号格式校验
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    true
-                                                                                </div>
-                                                                            </h3>
-                                                                        </li>
-                                                                        <li className="call-fields">
-                                                                            <h3>
-                                                                                <small className="display-block" style={{fontSize: "6px",padding:"6px"}}>
-                                                                                    借款人身份证
-                                                                                </small>
-                                                                                <div style={{lineHeight:"50px",marginLeft:"20px"}}>
-                                                                                    232303196605203239
+                                                                                <div style={{lineHeight:"50px",textAlign:"center",color:"lightgray"}}>
+                                                                                    <i className=" icon-plus3" style={{fontWeight:"bold"}}></i> 添加属性
                                                                                 </div>
                                                                             </h3>
                                                                         </li>
@@ -1305,6 +1190,279 @@ function progressCounter(element, radius, border, color, end) {
             setTimeout(loops, 10);
         }
     })();
+}
+function pieMultipleNested(element, radius, margin) {
+
+
+    // Basic setup
+    // ------------------------------
+
+    // Main variables
+    var marginTop = 20;
+
+    // Colors
+    var colors = d3.scale.category20c();
+
+
+    // Load data
+    // ------------------------------
+
+    d3.csv("assets/demo_data/d3/pies/pies_nesting.csv", function(flights) {
+
+        // Nest the flight data by originating airport
+        var airports = d3.nest()
+            .key(function(d) { return d.origin; })
+            .entries(flights);
+
+
+        // Create chart
+        // ------------------------------
+
+        // Insert an svg element (with margin) for each row in our dataset
+        var svg = d3.select(element)
+            .selectAll("svg")
+            .data(airports)
+            .enter()
+            .append("svg")
+            .attr("width", (radius + margin) * 2)
+            .attr("height", (radius + margin + marginTop) * 2)
+            .append("g")
+            .attr("transform", "translate(" + (radius + margin) + "," + (radius + margin + marginTop) + ")");
+
+
+
+        // Construct chart layout
+        // ------------------------------
+
+        // Arc
+        var arc = d3.svg.arc()
+            .innerRadius(0)
+            .outerRadius(radius);
+
+        // Pie
+        var pie = d3.layout.pie()
+            .value(function(d) { return +d.count; })
+            .sort(function(a, b) { return b.count - a.count; });
+
+
+        //
+        // Append chart elements
+        //
+
+        // Add a label for the airport
+        svg.append("text")
+            .attr("dy", ".35em")
+            .attr("y", -130)
+            .style("text-anchor", "middle")
+            .style("font-weight", 500)
+            .text(function(d) { return d.key; });
+
+
+        // Pass the nested values to the pie layout
+        var g = svg.selectAll("g")
+            .data(function(d) { return pie(d.values); })
+            .enter()
+            .append("g")
+            .attr("class", "d3-arc");
+
+
+        // Add a colored arc path, with a mouseover title showing the count
+        g.append("path")
+            .attr("d", arc)
+            .style("stroke", "#fff")
+            .style("fill", function(d) { return colors(d.data.carrier); })
+            .append("title")
+            .text(function(d) { return d.data.carrier + ": " + d.data.count; });
+
+
+        // Add a label to the larger arcs, translated to the arc centroid and rotated
+        g.filter(function(d) { return d.endAngle - d.startAngle > .2; }).append("text")
+            .attr("dy", ".35em")
+            .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")rotate(" + angle(d) + ")"; })
+            .style("fill", "#fff")
+            .style("font-size", 12)
+            .style("text-anchor", "middle")
+            .text(function(d) { return d.data.carrier; });
+
+        // Computes the label angle of an arc, converting from radians to degrees
+        function angle(d) {
+            var a = (d.startAngle + d.endAngle) * 90 / Math.PI - 90;
+            return a > 90 ? a - 180 : a;
+        }
+    });
+}
+function barVertical(element, height) {
+
+
+    // Basic setup
+    // ------------------------------
+
+    // Define main variables
+    var d3Container = d3.select(element),
+        margin = {top: 5, right: 10, bottom: 20, left: 40},
+        width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right,
+        height = height - margin.top - margin.bottom - 5;
+
+
+
+    // Construct scales
+    // ------------------------------
+
+    // Horizontal
+    var x = d3.scale.ordinal()
+        .rangeRoundBands([0, width], .5, .5);
+
+    // Vertical
+    var y = d3.scale.linear()
+        .range([height, 0]);
+
+    // Color
+    var color = d3.scale.category20c();
+
+
+
+    // Create axes
+    // ------------------------------
+
+    // Horizontal
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom");
+
+    // Vertical
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left");
+    // .ticks(10, "%");
+
+
+
+    // Create chart
+    // ------------------------------
+
+    // Add SVG element
+    var container = d3Container.append("svg");
+
+    // Add SVG group
+    var svg = container
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+    // Load data
+    // ------------------------------
+
+    d3.tsv("assets/demo_data/d3/bars/bars_basic_risk.tsv", function(error, data) {
+
+        // Pull out values
+        data.forEach(function(d) {
+            d.frequency = +d.frequency;
+        });
+
+
+        // Set input domains
+        // ------------------------------
+
+        // Horizontal
+        x.domain(data.map(function(d) { return d.letter; }));
+
+        // Vertical
+        y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+
+
+        //
+        // Append chart elements
+        //
+
+        // Append axes
+        // ------------------------------
+
+        // Horizontal
+        svg.append("g")
+            .attr("class", "d3-axis d3-axis-horizontal d3-axis-strong")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        // Vertical
+        var verticalAxis = svg.append("g")
+            .attr("class", "d3-axis d3-axis-vertical d3-axis-strong")
+            .call(yAxis);
+
+        // Add text label
+        verticalAxis.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 10)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .style("fill", "#999")
+            .style("font-size", 12)
+            .text("区间风险系数分布总量");
+
+
+        // Add bars
+        svg.selectAll(".d3-bar")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("class", "d3-bar")
+            .attr("x", function(d) { return x(d.letter); })
+            .attr("width", x.rangeBand())
+            .attr("y", function(d) { return y(d.frequency); })
+            .attr("height", function(d) { return height - y(d.frequency); })
+            .style("fill", function(d) { return color(d.letter); });
+    });
+
+
+
+    // Resize chart
+    // ------------------------------
+
+    // Call function on window resize
+    $(window).on('resize', resize);
+
+    // Call function on sidebar width change
+    $('.sidebar-control').on('click', resize);
+
+    // Resize function
+    //
+    // Since D3 doesn't support SVG resize by default,
+    // we need to manually specify parts of the graph that need to
+    // be updated on window resize
+    function resize() {
+
+        // Layout variables
+        width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right;
+
+
+        // Layout
+        // -------------------------
+
+        // Main svg width
+        container.attr("width", width + margin.left + margin.right);
+
+        // Width of appended group
+        svg.attr("width", width + margin.left + margin.right);
+
+
+        // Axes
+        // -------------------------
+
+        // Horizontal range
+        x.rangeRoundBands([0, width], .1, .5);
+
+        // Horizontal axis
+        svg.selectAll('.d3-axis-horizontal').call(xAxis);
+
+
+        // Chart elements
+        // -------------------------
+
+        // Line path
+        svg.selectAll('.d3-bar').attr("x", function(d) { return x(d.letter); }).attr("width", x.rangeBand());
+    }
 }
 function textWidth(text){
     var sensor = $('<pre>'+ text +'</pre>').css({display: 'none'});

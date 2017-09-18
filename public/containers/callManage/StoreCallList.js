@@ -8,7 +8,7 @@ import FinalResult from "./FinalResult"
 import {commonRefresh} from '../../actions/Common';
 import {browserHistory} from 'react-router'
 
-class CallList extends Component{
+class UserCallList extends Component{
     constructor(props) {
         super(props);
         this.condition = 1;
@@ -117,7 +117,23 @@ class CallList extends Component{
                                                     <h6 className="panel-title">
                                                         <div>
                                                             <div>
-                                                                <div style={{position: 'relative',float:"left",display:this.condition!=5?"block":"none"}}>
+                                                                <div style={{position: 'relative',float:"left",marginLeft:"20px"}}>
+                                                                    <select className="selectbox selectbox-auto selectbox-custom-icon">
+                                                                        <option value={1}>个人借贷</option>
+                                                                        <option value={2}>商户借贷</option>
+                                                                        <option value={3}>企业借贷</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div style={{position: 'relative',float:"left",marginLeft:"20px"}}>
+                                                                    <select className="selectbox selectbox-auto selectbox-custom-icon">
+                                                                        <option value={""}>所有类型</option>
+                                                                        <option value={1}>旅游分期</option>
+                                                                        <option value={2}>POS贷</option>
+                                                                        <option value={3}>现金贷</option>
+                                                                        <option value={4}>信用贷</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div style={{position: 'relative',float:"left",display:this.condition!=5?"block":"none",marginLeft:"20px"}}>
                                                                     <select className="selectbox selectbox-auto selectbox-custom-icon">
                                                                         <option value={1}>1天</option>
                                                                         <option value={2}>7天</option>
@@ -1479,4 +1495,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(CallList)
+export default connect(mapStateToProps)(UserCallList)

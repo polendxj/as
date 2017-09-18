@@ -1,44 +1,44 @@
 /**
- * Created by Captain on 2017/8/28.
+ * Created by Captain on 2017/9/19.
  */
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {browserHistory} from 'react-router'
 
-class CallManage extends Component{
+class RiskList extends Component{
     constructor(props) {
         super(props);
         this.data1 = [
             {
                 "browser": "个人所占比例",
-                "value": 1000,
+                "value": 128,
                 "color" : "#66BB6A"
             }, {
                 "browser": "",
-                "value": 2000,
+                "value": 324,
                 "color": "#999"
             }
         ];
         this.data2 = [
             {
                 "browser": "商户所占比例",
-                "value": 800,
+                "value": 200,
                 "color" : "#66BB6A"
             }, {
                 "browser": "",
-                "value": 2200,
+                "value": 352,
                 "color": "#999"
             }
         ];
         this.data3 = [
             {
                 "browser": "企业所占比例",
-                "value": 1200,
+                "value": 124,
                 "color" : "#66BB6A"
             }, {
                 "browser": "",
-                "value": 1800,
+                "value": 328,
                 "color": "#999"
             }
         ];
@@ -96,7 +96,7 @@ class CallManage extends Component{
                         <div className="panel-body">
                             <div className="tabbable">
                                 <ul className="nav nav-pills">
-                                    <li className="active"><a href="#basic-pill1" data-toggle="tab">借贷列表</a></li>
+                                    <li className="active"><a href="#basic-pill1" data-toggle="tab">风险名单列表</a></li>
                                 </ul>
 
                                 <div className="tab-content">
@@ -127,14 +127,6 @@ class CallManage extends Component{
                                                         </select>
                                                     </li>
                                                     <li>
-                                                        <select id="straSelect" className="form-control">
-                                                            <option value={""}>全部</option>
-                                                            <option value={1}>通过</option>
-                                                            <option value={2}>拒绝</option>
-                                                            <option value={3}>人工审核</option>
-                                                        </select>
-                                                    </li>
-                                                    <li>
                                                         <button onClick={this._search.bind(this)} type="button"
                                                                 className="btn btn-primary btn-icon"><i
                                                             className="icon-search4"></i>搜索</button>
@@ -150,7 +142,7 @@ class CallManage extends Component{
                                                                 <div id="campaigns-donut"></div>
                                                             </div>
 
-                                                            <div className="media-left" onClick={this.locationTo.bind(this,"/userCall")} style={{cursor:"pointer"}}>
+                                                            <div className="media-left" onClick={this.locationTo.bind(this,"/userRisk")} style={{cursor:"pointer"}}>
                                                                 <h5 className="text-semibold no-margin">个人借贷：{this.data1[0].value}比</h5>
                                                                 <ul className="list-inline list-inline-condensed no-margin">
                                                                     <li>
@@ -165,11 +157,11 @@ class CallManage extends Component{
                                                                 <div id="campaigns-donut1"></div>
                                                             </div>
 
-                                                            <div className="media-left" onClick={this.locationTo.bind(this,"/storeCall")} style={{cursor:"pointer"}}>
+                                                            <div className="media-left" onClick={this.locationTo.bind(this,"/storeRisk")} style={{cursor:"pointer"}}>
                                                                 <h5 className="text-semibold no-margin">商户借贷：{this.data2[0].value}比</h5>
                                                                 <ul className="list-inline list-inline-condensed no-margin">
                                                                     <li>
-                                                                        <span className="text-muted">商户所占比例：{"26.7%"}</span>
+                                                                        <span className="text-muted">商户所占比例：{"40%"}</span>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -183,7 +175,7 @@ class CallManage extends Component{
                                                                 <h5 className="text-semibold no-margin">企业借贷：{this.data3[0].value}比</h5>
                                                                 <ul className="list-inline list-inline-condensed no-margin">
                                                                     <li>
-                                                                        <span className="text-muted">企业所占比例：{"40%"}</span>
+                                                                        <span className="text-muted">企业所占比例：{"26.7%"}</span>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -197,8 +189,8 @@ class CallManage extends Component{
                                                 <table className="table text-nowrap">
                                                     <thead>
                                                     <tr>
-                                                        <th className="col-md-4">借贷类型</th>
-                                                        <th className="col-md-4">借贷人数</th>
+                                                        <th className="col-md-4">借贷人名称</th>
+                                                        <th className="col-md-4">欺诈次数</th>
                                                         <th className="col-md-4">借贷总次数</th>
                                                         <th className="text-center" style={{width: "20px"}}><i className="icon-arrow-down12"/></th>
                                                     </tr>
@@ -208,9 +200,9 @@ class CallManage extends Component{
                                                         <td colSpan="5" style={{fontSize:"18px"}}><i className="icon-user" style={{fontSize:"18px"}}/>个人借贷</td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">旅游分期</div></td>
-                                                        <td>54</td>
-                                                        <td>486</td>
+                                                        <td><div className="media-left">张三</div></td>
+                                                        <td>6</td>
+                                                        <td>8</td>
                                                         <td className="text-center">
                                                             <ul className="icons-list">
                                                                 <li className="dropdown">
@@ -223,39 +215,9 @@ class CallManage extends Component{
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">POS贷</div></td>
-                                                        <td>23</td>
-                                                        <td>196</td>
-                                                        <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><div className="media-left">现金贷</div></td>
-                                                        <td>87</td>
-                                                        <td>674</td>
-                                                        <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><div className="media-left">信用贷</div></td>
-                                                        <td>67</td>
-                                                        <td>768</td>
+                                                        <td><div className="media-left">李四</div></td>
+                                                        <td>5</td>
+                                                        <td>12</td>
                                                         <td className="text-center">
                                                             <ul className="icons-list">
                                                                 <li className="dropdown">
@@ -272,9 +234,9 @@ class CallManage extends Component{
                                                         <td colSpan="5" style={{fontSize:"18px"}}><i className="icon-store" style={{fontSize:"18px"}}/>商户借贷</td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">POS贷</div></td>
-                                                        <td>26</td>
-                                                        <td>168</td>
+                                                        <td><div className="media-left">商户1</div></td>
+                                                        <td>5</td>
+                                                        <td>6</td>
                                                         <td className="text-center">
                                                             <ul className="icons-list">
                                                                 <li className="dropdown">
@@ -287,24 +249,9 @@ class CallManage extends Component{
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">现金贷</div></td>
-                                                        <td>65</td>
-                                                        <td>548</td>
-                                                        <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><div className="media-left">信用贷</div></td>
-                                                        <td>43</td>
-                                                        <td>363</td>
+                                                        <td><div className="media-left">商户2</div></td>
+                                                        <td>1</td>
+                                                        <td>3</td>
                                                         <td className="text-center">
                                                             <ul className="icons-list">
                                                                 <li className="dropdown">
@@ -321,9 +268,9 @@ class CallManage extends Component{
                                                         <td colSpan="5" style={{fontSize:"18px"}}><i className="icon-office" style={{fontSize:"18px"}}/>企业借贷</td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">POS贷</div></td>
-                                                        <td>12</td>
-                                                        <td>86</td>
+                                                        <td><div className="media-left">企业1</div></td>
+                                                        <td>1</td>
+                                                        <td>4</td>
                                                         <td className="text-center">
                                                             <ul className="icons-list">
                                                                 <li className="dropdown">
@@ -336,24 +283,9 @@ class CallManage extends Component{
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">现金贷</div></td>
-                                                        <td>54</td>
-                                                        <td>452</td>
-                                                        <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><div className="media-left">信用贷</div></td>
-                                                        <td>87</td>
-                                                        <td>983</td>
+                                                        <td><div className="media-left">企业2</div></td>
+                                                        <td>2</td>
+                                                        <td>8</td>
                                                         <td className="text-center">
                                                             <ul className="icons-list">
                                                                 <li className="dropdown">
@@ -526,4 +458,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(CallManage)
+export default connect(mapStateToProps)(RiskList)

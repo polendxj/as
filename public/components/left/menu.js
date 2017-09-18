@@ -128,6 +128,9 @@ class SystemConfiguration extends Component {
                 <li className="left" onClick={this._leftMenuClick.bind(this, '/callManage')}><a
                     href="javascript:void(0)"><i
                     className=" icon-megaphone"></i> <span>{"调用管理"}</span></a></li>
+                <li className="left" onClick={this._leftMenuClick.bind(this, '/riskList')}><a
+                    href="javascript:void(0)"><i
+                    className=" icon-alert"></i> <span>{"风险预警"}</span></a></li>
             </ul>
         )
     }

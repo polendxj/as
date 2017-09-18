@@ -21,7 +21,11 @@ import PreAudit from './containers/preAudit/PreAudit'
 import AfterLoanMonitor from './containers/afterLoanMonitor/AfterLoanMonitor'
 import CallManage from './containers/callManage/CallManage'
 import CallDetail from './containers/callManage/CallDetail'
-import CallList from './containers/callManage/CallList'
+import UserCallList from './containers/callManage/UserCallList'
+import StoreCallList from './containers/callManage/StoreCallList'
+import RiskList from './containers/riskAlarm/RiskList'
+import UserRisk from './containers/riskAlarm/UserRisk'
+import StoreRisk from './containers/riskAlarm/StoreRisk'
 
 let store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
@@ -42,7 +46,12 @@ render(
                 <Route path="/preAudit" component={PreAudit}/>
                 <Route path="/afterLoanMonitor" component={AfterLoanMonitor}/>
                 <Route path="/CallDetail" component={CallDetail}/>
-                <Route path="/callManage" component={CallList}/>
+                <Route path="/callManage" component={CallManage}/>
+                <Route path="/userCall" component={UserCallList}/>
+                <Route path="/storeCall" component={StoreCallList}/>
+                <Route path="/riskList" component={RiskList}/>
+                <Route path="/userRisk" component={UserRisk}/>
+                <Route path="/storeRisk" component={StoreRisk}/>
             </Route>
         </Router>
     </Provider>,

@@ -11,35 +11,53 @@ class CallManage extends Component{
         super(props);
         this.data1 = [
             {
-                "browser": "个人所占比例",
-                "value": 1000,
+                "browser": "个人正常借贷",
+                "value": 1556,
                 "color" : "#66BB6A"
-            }, {
-                "browser": "",
-                "value": 2000,
-                "color": "#999"
-            }
+            },
+            {
+                "browser": "个人欺诈借贷",
+                "value": 400,
+                "color" : "red"
+            },
+            {
+                "browser": "个人人工审核借贷",
+                "value": 200,
+                "color" : "yellow"
+            },
         ];
         this.data2 = [
             {
-                "browser": "商户所占比例",
-                "value": 800,
+                "browser": "商户正常借贷",
+                "value": 716,
                 "color" : "#66BB6A"
-            }, {
-                "browser": "",
-                "value": 2200,
-                "color": "#999"
+            },
+            {
+                "browser": "商户欺诈借贷",
+                "value": 50,
+                "color" : "red"
+            },
+            {
+                "browser": "商户人工审核借贷",
+                "value": 34,
+                "color" : "yellow"
             }
         ];
         this.data3 = [
             {
-                "browser": "企业所占比例",
+                "browser": "企业正常借贷",
                 "value": 1200,
                 "color" : "#66BB6A"
-            }, {
-                "browser": "",
-                "value": 1800,
-                "color": "#999"
+            },
+            {
+                "browser": "企业欺诈借贷",
+                "value": 200,
+                "color" : "red"
+            },
+            {
+                "browser": "企业人工审核借贷",
+                "value": 500,
+                "color" : "yellow"
             }
         ];
     }
@@ -151,10 +169,10 @@ class CallManage extends Component{
                                                             </div>
 
                                                             <div className="media-left" onClick={this.locationTo.bind(this,"/userCall")} style={{cursor:"pointer"}}>
-                                                                <h5 className="text-semibold no-margin">个人借贷：{this.data1[0].value}比</h5>
+                                                                <h5 className="text-semibold no-margin">个人借贷：{2156} 笔</h5>
                                                                 <ul className="list-inline list-inline-condensed no-margin">
                                                                     <li>
-                                                                        <span className="text-muted">个人所占比例：{"33.3%"}</span>
+                                                                        <span className="text-muted">欺诈比例：{"18.55%"}</span>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -166,10 +184,10 @@ class CallManage extends Component{
                                                             </div>
 
                                                             <div className="media-left" onClick={this.locationTo.bind(this,"/storeCall")} style={{cursor:"pointer"}}>
-                                                                <h5 className="text-semibold no-margin">商户借贷：{this.data2[0].value}比</h5>
+                                                                <h5 className="text-semibold no-margin">商户借贷：{800} 笔</h5>
                                                                 <ul className="list-inline list-inline-condensed no-margin">
                                                                     <li>
-                                                                        <span className="text-muted">商户所占比例：{"26.7%"}</span>
+                                                                        <span className="text-muted">欺诈比例：{"6.25%"}</span>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -180,10 +198,10 @@ class CallManage extends Component{
                                                             </div>
 
                                                             <div className="media-left" onClick={this.locationTo.bind(this,"/companyCall")} style={{cursor:"pointer"}}>
-                                                                <h5 className="text-semibold no-margin">企业借贷：{this.data3[0].value}比</h5>
+                                                                <h5 className="text-semibold no-margin">企业借贷：{1900} 笔</h5>
                                                                 <ul className="list-inline list-inline-condensed no-margin">
                                                                     <li>
-                                                                        <span className="text-muted">企业所占比例：{"40%"}</span>
+                                                                        <span className="text-muted">欺诈比例：{"10.53%"}</span>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -194,176 +212,148 @@ class CallManage extends Component{
                                             </div>
 
                                             <div className="table-responsive">
-                                                <table className="table text-nowrap">
+                                                <table className="table">
                                                     <thead>
                                                     <tr>
                                                         <th className="col-md-4">借贷类型</th>
-                                                        <th className="col-md-4">借贷人数</th>
-                                                        <th className="col-md-4">借贷总次数</th>
-                                                        <th className="text-center" style={{width: "20px"}}><i className="icon-arrow-down12"/></th>
+                                                        <th className="col-md-2 text-center">借贷独立用户数</th>
+                                                        <th className="col-md-2 text-center">借贷总次数</th>
+                                                        <th className="col-md-2 text-center">同比上月涨幅 （欺诈目标）</th>
+                                                        <th className="col-md-2 text-center">欺诈比率</th>
+
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr className="active border-double">
-                                                        <td colSpan="5" style={{fontSize:"18px"}}><i className="icon-user" style={{fontSize:"18px"}}/>个人借贷</td>
+                                                        <td colSpan="5" style={{fontSize:"18px"}}><i className="icon-user" style={{fontSize:"14px",fontWeight:"bold"}}> 个人借贷</i></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">旅游分期</div></td>
-                                                        <td>54</td>
-                                                        <td>486</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/userCall")}>旅游分期</a></td>
+                                                        <td className="text-center">54</td>
+                                                        <td className="text-center">486</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-success-600"><i className="icon-stats-growth2 position-left"></i> 2.43%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">5.24%</h6>
+                                                        </td>
+
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">POS贷</div></td>
-                                                        <td>23</td>
-                                                        <td>196</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/userCall")}>POS贷</a></td>
+                                                        <td className="text-center">23</td>
+                                                        <td className="text-center">196</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-danger"><i className="icon-stats-decline2 position-left"></i> - 8.02%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">5.24%</h6>
+                                                        </td>
+
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">现金贷</div></td>
-                                                        <td>87</td>
-                                                        <td>674</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/userCall")}>现金贷</a></td>
+                                                        <td className="text-center">87</td>
+                                                        <td className="text-center">674</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-danger"><i className="icon-stats-decline2 position-left"></i> - 34.58%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">1.124%</h6>
+                                                        </td>
+
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">信用贷</div></td>
-                                                        <td>67</td>
-                                                        <td>768</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/userCall")}>信用贷</a></td>
+                                                        <td className="text-center">67</td>
+                                                        <td className="text-center">768</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-success-600"><i className="icon-stats-growth2 position-left"></i> 2.43%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">6.1%</h6>
+                                                        </td>
+
                                                     </tr>
 
                                                     <tr className="active border-double">
-                                                        <td colSpan="5" style={{fontSize:"18px"}}><i className="icon-store" style={{fontSize:"18px"}}/>商户借贷</td>
+                                                        <td colSpan="5" style={{fontSize:"18px"}}><i className="icon-store" style={{fontSize:"14px",fontWeight:"bold"}}> 商户借贷</i></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">POS贷</div></td>
-                                                        <td>26</td>
-                                                        <td>168</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/storeCall")}>POS贷</a></td>
+                                                        <td className="text-center">26</td>
+                                                        <td className="text-center">168</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-danger"><i className="icon-stats-decline2 position-left"></i> - 1.02%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">5.6%</h6>
+                                                        </td>
+
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">现金贷</div></td>
-                                                        <td>65</td>
-                                                        <td>548</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/storeCall")}>现金贷</a></td>
+                                                        <td className="text-center">65</td>
+                                                        <td className="text-center">548</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-success-600"><i className="icon-stats-growth2 position-left"></i> 2.43%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">3.8%</h6>
+                                                        </td>
+
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">信用贷</div></td>
-                                                        <td>43</td>
-                                                        <td>363</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/storeCall")}>信用贷</a></td>
+                                                        <td className="text-center">43</td>
+                                                        <td className="text-center">363</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-success-600"><i className="icon-stats-growth2 position-left"></i> 17.3%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">7.3%</h6>
+                                                        </td>
+
                                                     </tr>
 
                                                     <tr className="active border-double">
-                                                        <td colSpan="5" style={{fontSize:"18px"}}><i className="icon-office" style={{fontSize:"18px"}}/>企业借贷</td>
+                                                        <td colSpan="5" style={{fontSize:"18px"}}><i className="icon-store" style={{fontSize:"14px",fontWeight:"bold"}}> 企业借贷</i></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">POS贷</div></td>
-                                                        <td>12</td>
-                                                        <td>86</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/userCall")}>POS贷</a></td>
+                                                        <td className="text-center">12</td>
+                                                        <td className="text-center">86</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-danger"><i className="icon-stats-decline2 position-left"></i> - 18.32%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">13.3%</h6>
+                                                        </td>
+
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">现金贷</div></td>
-                                                        <td>54</td>
-                                                        <td>452</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/userCall")}>现金贷</a></td>
+                                                        <td className="text-center">54</td>
+                                                        <td className="text-center">452</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-success-600"><i className="icon-stats-growth2 position-left"></i> 7.78%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">4.2%</h6>
+                                                        </td>
+
                                                     </tr>
                                                     <tr>
-                                                        <td><div className="media-left">信用贷</div></td>
-                                                        <td>87</td>
-                                                        <td>983</td>
+                                                        <td><a href="javascript:void(0)" style={{color:"#2196F3"}}  onClick={this.locationTo.bind(this,"/userCall")}>信用贷</a></td>
+                                                        <td className="text-center">87</td>
+                                                        <td className="text-center">983</td>
                                                         <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="icon-menu7"></i></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li><a href="#"><i className="icon-redo2"/>详情</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
+                                                            <span className="text-success-600"><i className="icon-stats-growth2 position-left"></i> 12.59%</span>
                                                         </td>
+                                                        <td className="text-center">
+                                                            <h6 className="text-semibold">4.2%</h6>
+                                                        </td>
+
                                                     </tr>
 
                                                     </tbody>

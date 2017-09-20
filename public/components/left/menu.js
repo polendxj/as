@@ -11,40 +11,41 @@ class MainMenu extends Component {
     }
 
     componentDidUpdate() {
-        $(".left").on("click",function () {
+        $(".left").on("click", function () {
             $(".left").removeClass("active");
             $(this).addClass("active");
-            if($(this).find("ul").length<=0){
-                $(".hidden-ul").css("display","none")
+            if ($(this).find("ul").length <= 0) {
+                $(".hidden-ul").css("display", "none")
 
             }
         })
 
-        $(".hidden-ul li").on("click",function () {
-            $(".hidden-ul li a").css("backgroundColor","transparent");
-            $(".hidden-ul li a").css("borderRight","0 #2C4B77 solid");
-            $(".hidden-ul li a").css("color","rgba(255,255,255,0.75)");
-            $(this).find("a").css("backgroundColor","#132640");
-            $(this).find("a").css("color","white");
-            $(this).find("a").css("borderRight","4px #2C4B77 solid");
-            sessionStorage["routerType"]="";
+        $(".hidden-ul li").on("click", function () {
+            $(".hidden-ul li a").css("backgroundColor", "transparent");
+            $(".hidden-ul li a").css("borderRight", "0 #2C4B77 solid");
+            $(".hidden-ul li a").css("color", "rgba(255,255,255,0.75)");
+            $(this).find("a").css("backgroundColor", "#132640");
+            $(this).find("a").css("color", "white");
+            $(this).find("a").css("borderRight", "4px #2C4B77 solid");
+            sessionStorage["routerType"] = "";
         })
     }
-    componentDidMount(){
-        $(".hidden-ul li").on("click",function () {
-            $(".hidden-ul li a").css("backgroundColor","transparent");
-            $(".hidden-ul li a").css("borderRight","0 #2C4B77 solid");
-            $(".hidden-ul li a").css("color","rgba(255,255,255,0.75)");
-            $(this).find("a").css("backgroundColor","#132640");
-            $(this).find("a").css("color","white");
-            $(this).find("a").css("borderRight","4px #2C4B77 solid");
-            sessionStorage["routerType"]="";
+
+    componentDidMount() {
+        $(".hidden-ul li").on("click", function () {
+            $(".hidden-ul li a").css("backgroundColor", "transparent");
+            $(".hidden-ul li a").css("borderRight", "0 #2C4B77 solid");
+            $(".hidden-ul li a").css("color", "rgba(255,255,255,0.75)");
+            $(this).find("a").css("backgroundColor", "#132640");
+            $(this).find("a").css("color", "white");
+            $(this).find("a").css("borderRight", "4px #2C4B77 solid");
+            sessionStorage["routerType"] = "";
         })
         // Adjust page height on sidebar control button click
         $(document).on('click', '.sidebar-control', function (e) {
             var availableHeight = $(window).height() - $('body > .navbar').outerHeight() - $('body > .navbar + .navbar').outerHeight() - $('body > .navbar + .navbar-collapse').outerHeight();
 
-            $('.page-container').attr('style', 'min-height:' + (availableHeight-46) + 'px');
+            $('.page-container').attr('style', 'min-height:' + (availableHeight - 46) + 'px');
         });
         $('.sidebar-main-toggle').on('click', function (e) {
             e.preventDefault();
@@ -128,9 +129,18 @@ class SystemConfiguration extends Component {
                 <li className="left" onClick={this._leftMenuClick.bind(this, '/callManage')}><a
                     href="javascript:void(0)"><i
                     className=" icon-megaphone"></i> <span>{"调用管理"}</span></a></li>
-                <li className="left" onClick={this._leftMenuClick.bind(this, '/riskList')}><a
-                    href="javascript:void(0)"><i
-                    className=" icon-alert"></i> <span>{"风险预警"}</span></a></li>
+                <ul className="navigation navigation-main navigation-accordion">
+                    <li className="navigation-header"><span>{"风险预警"}</span> <i className="icon-menu" title=""
+                                                                               data-original-title="实时监控"></i>
+                    </li>
+                    <li className="left" onClick={this._leftMenuClick.bind(this, '/userRisk')}><a
+                        href="javascript:void(0)"> <i
+                        className="  icon-user-block"></i> <span>{"个人预警"}</span></a></li>
+                    <li className="left" onClick={this._leftMenuClick.bind(this, '/storeRisk')}><a
+                        href="javascript:void(0)"> <i
+                        className=" icon-cart5"></i> <span>{"商户预警"}</span></a></li>
+                </ul>
+
             </ul>
         )
     }
@@ -160,7 +170,7 @@ class PerformanceMonitoringMenu extends Component {
             <ul className="navigation navigation-main navigation-accordion">
 
                 <li className="navigation-header"><span>{"大盘概览"}</span> <i className="icon-menu" title=""
-                                                                       data-original-title="实时监控"></i>
+                                                                           data-original-title="实时监控"></i>
                 </li>
                 <li className="left active" onClick={this._leftMenuClick.bind(this, '/dashboard')}><a
                     href="javascript:void(0)"><i
@@ -220,19 +230,21 @@ class UserCenter extends Component {
         return (
             <ul className="navigation navigation-main navigation-accordion">
 
-                <li className="navigation-header"><span>{Current_Lang.label.management}</span> <i className="icon-menu" title=""
-                                                                     data-original-title="管理"></i>
+                <li className="navigation-header"><span>{Current_Lang.label.management}</span> <i className="icon-menu"
+                                                                                                  title=""
+                                                                                                  data-original-title="管理"></i>
                 </li>
                 <li
                     onClick={this._leftMenuClick.bind(this, '/UserManager/Admin')}><a
                     href="javascript:void(0)"><i
                     className="icon-user"></i> <span>{Current_Lang.menus.userManagement}</span></a></li>
-                <li style={{display:'none'}}
+                <li style={{display: 'none'}}
                     onClick={this._leftMenuClick.bind(this, '/UserManager/Permission')}><a
                     href="javascript:void(0)"><i
                     className="icon-vcard"></i> <span>权限管理</span></a></li>
-                <li className="navigation-header"><span>{Current_Lang.label.operation}</span> <i className="icon-menu" title=""
-                                                                     data-original-title="操作"></i>
+                <li className="navigation-header"><span>{Current_Lang.label.operation}</span> <i className="icon-menu"
+                                                                                                 title=""
+                                                                                                 data-original-title="操作"></i>
                 </li>
                 <li
                     onClick={this._leftMenuClick.bind(this, '/UserManager/Operation/JobHistoryList')}><a
@@ -268,15 +280,19 @@ class AlarmManage extends Component {
         return (
             <ul className="navigation navigation-main navigation-accordion">
 
-                <li className="navigation-header"><span>{Current_Lang.menus.alarmManagement}</span> <i className="icon-menu" title=""
-                                                                       data-original-title="告警"></i>
+                <li className="navigation-header"><span>{Current_Lang.menus.alarmManagement}</span> <i
+                    className="icon-menu" title=""
+                    data-original-title="告警"></i>
                 </li>
                 <li>
-                    <a href="javascript:void(0)"><i className="icon-warning"></i> <span>{Current_Lang.menus.alarmManagement}</span></a></li>
+                    <a href="javascript:void(0)"><i className="icon-warning"></i>
+                        <span>{Current_Lang.menus.alarmManagement}</span></a></li>
                 <li onClick={this._leftMenuClick.bind(this, '/systemConfig/originalSystem/dataCenterOfContentDistribute')}>
-                    <a href="javascript:void(0)"><i className="icon-warning"></i> <span>{Current_Lang.menus.alarmHistory}</span></a></li>
+                    <a href="javascript:void(0)"><i className="icon-warning"></i>
+                        <span>{Current_Lang.menus.alarmHistory}</span></a></li>
                 <li onClick={this._leftMenuClick.bind(this, '/Monitor/Alarm/Threshold')}>
-                    <a href="javascript:void(0)"><i className="icon-spam"></i> <span>{Current_Lang.menus.alarmHistory}</span></a></li>
+                    <a href="javascript:void(0)"><i className="icon-spam"></i>
+                        <span>{Current_Lang.menus.alarmHistory}</span></a></li>
 
             </ul>
         )

@@ -13829,10 +13829,10 @@ a.plupload_disabled:focus {
   .timeline-left .timeline-date:after {
     left: 24px;
   }
-  .timeline-left .timeline-row,
-  .timeline-left .timeline-date {
-    padding-left: 68px;
-  }
+  /*.timeline-left .timeline-row,*/
+  /*.timeline-left .timeline-date {*/
+    /*padding-left: 68px;*/
+  /*}*/
   .timeline-right .timeline-container:after,
   .timeline-right:before,
   .timeline-right:after,

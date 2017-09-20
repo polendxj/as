@@ -144,7 +144,7 @@ class UserRisk extends Component{
                                                                 </div>
                                                                 <div style={{position: 'relative',float:"left",marginLeft:"20px",lineHeight:"35px",display:this.condition!=5?"block":"none"}}>内</div>
                                                                 <div style={{position: 'relative',left:"120px",float:"left"}}>
-                                                                    <input id="setValue" className="form-control" style={{position: 'relative',left:"-100px",width:"auto"}}/>
+                                                                    <input id="setValue" className="form-control" style={{position: 'relative',left:"-100px",width:"250px"}}/>
                                                                 </div>
                                                                 <div style={{position: 'relative',float:"left",marginLeft:"40px",lineHeight:"35px"}}>按</div>
                                                                 <input id="sortParamInput" className="form-control" value={this.sortParam} style={{position: 'relative',left:"20px",float:"left",width:"120px"}}/>
@@ -216,115 +216,43 @@ class UserRisk extends Component{
                                                         <th className="col-md-3 text-bold text-center">{"借贷类型"}</th>
                                                         <th className="col-md-2 text-bold text-center">{"欺诈次数"}</th>
                                                         <th className="col-md-2 text-bold text-center">{"借贷总次数"}</th>
-                                                        <th className="text-center" style={{width: "20px"}}><i
-                                                            className="icon-arrow-down12"/></th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     <tr>
-                                                        <td className="text-center">{"张三"}</td>
+                                                        <td className="text-center"><a href="javascript:void(0)" style={{color:"#2196F3"}} onClick={this.toDetail.bind(this)}>{"李海全"}</a></td>
                                                         <td className="text-center">{"个人借贷"}</td>
                                                         <td className="text-center">{"POS贷"}</td>
                                                         <td className="text-center">{"1"}</td>
                                                         <td className="text-center">{"3"}</td>
-                                                        <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle"
-                                                                       data-toggle="dropdown" aria-expanded="false"><i
-                                                                        className="icon-menu7"/></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li style={{display:'block'}} onClick={this.toDetail.bind(this)}>
-                                                                            <a href="javascript:void(0)"><i className="icon-pencil5"/>
-                                                                                {"修改"}</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td className="text-center">{"张三"}</td>
+                                                        <td className="text-center"><a href="javascript:void(0)" style={{color:"#2196F3"}} onClick={this.toDetail.bind(this)}>{"王伟"}</a></td>
                                                         <td className="text-center">{"个人借贷"}</td>
                                                         <td className="text-center">{"现金贷"}</td>
                                                         <td className="text-center">{"2"}</td>
                                                         <td className="text-center">{"3"}</td>
-                                                        <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle"
-                                                                       data-toggle="dropdown" aria-expanded="false"><i
-                                                                        className="icon-menu7"/></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li style={{display:'block'}} onClick={this.toDetail.bind(this)}>
-                                                                            <a href="javascript:void(0)"><i className="icon-pencil5"/>
-                                                                                {"修改"}</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td className="text-center">{"张三"}</td>
+                                                        <td className="text-center"><a href="javascript:void(0)" style={{color:"#2196F3"}} onClick={this.toDetail.bind(this)}>{"甘露"}</a></td>
                                                         <td className="text-center">{"个人借贷"}</td>
                                                         <td className="text-center">{"旅游分期"}</td>
                                                         <td className="text-center">{"1"}</td>
                                                         <td className="text-center">{"3"}</td>
-                                                        <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle"
-                                                                       data-toggle="dropdown" aria-expanded="false"><i
-                                                                        className="icon-menu7"/></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li style={{display:'block'}} onClick={this.toDetail.bind(this)}>
-                                                                            <a href="javascript:void(0)"><i className="icon-pencil5"/>
-                                                                                {"修改"}</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td className="text-center">{"李四"}</td>
+                                                        <td className="text-center"><a href="javascript:void(0)" style={{color:"#2196F3"}} onClick={this.toDetail.bind(this)}>{"李军军"}</a></td>
                                                         <td className="text-center">{"个人借贷"}</td>
                                                         <td className="text-center">{"POS贷"}</td>
                                                         <td className="text-center">{"2"}</td>
                                                         <td className="text-center">{"3"}</td>
-                                                        <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle"
-                                                                       data-toggle="dropdown" aria-expanded="false"><i
-                                                                        className="icon-menu7"/></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li style={{display:'block'}} onClick={this.toDetail.bind(this)}>
-                                                                            <a href="javascript:void(0)"><i className="icon-pencil5"/>
-                                                                                {"修改"}</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td className="text-center">{"李四"}</td>
+                                                        <td className="text-center"><a href="javascript:void(0)" style={{color:"#2196F3"}} onClick={this.toDetail.bind(this)}>{"郭松路"}</a></td>
                                                         <td className="text-center">{"个人借贷"}</td>
                                                         <td className="text-center">{"现金"}</td>
                                                         <td className="text-center">{"1"}</td>
                                                         <td className="text-center">{"2"}</td>
-                                                        <td className="text-center">
-                                                            <ul className="icons-list">
-                                                                <li className="dropdown">
-                                                                    <a href="#" className="dropdown-toggle"
-                                                                       data-toggle="dropdown" aria-expanded="false"><i
-                                                                        className="icon-menu7"/></a>
-                                                                    <ul className="dropdown-menu dropdown-menu-right">
-                                                                        <li style={{display:'block'}} onClick={this.toDetail.bind(this)}>
-                                                                            <a href="javascript:void(0)"><i className="icon-pencil5"/>
-                                                                                {"修改"}</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </td>
                                                     </tr>
                                                     </tbody>
                                                 </table>

@@ -17,8 +17,8 @@ class UserCallList extends Component{
         this._startRefresh=this._startRefresh.bind(this);
     }
     componentDidMount(){
-        barVertical('#riskRatio', 400);
-        pieMultipleNested('#d3-pie-basic',110,10);
+        barVertical('#riskRatio', 200);
+        pieMultipleNested('#d3-pie-basic',80,10);
         $(".selectbox-custom-icon").selectBoxIt({
             autoWidth: false,
             // Set a custom down arrow icon by adding new CSS class(s)
@@ -119,8 +119,8 @@ class UserCallList extends Component{
                                                             <div>
                                                                 <div style={{position: 'relative',float:"left",marginLeft:"20px"}}>
                                                                     <select className="selectbox selectbox-auto selectbox-custom-icon">
-                                                                        <option value={1}>个人借贷</option>
                                                                         <option value={2}>商户借贷</option>
+                                                                        <option value={1}>个人借贷</option>
                                                                         <option value={3}>企业借贷</option>
                                                                     </select>
                                                                 </div>
@@ -145,7 +145,7 @@ class UserCallList extends Component{
                                                                 </div>
                                                                 <div style={{position: 'relative',float:"left",marginLeft:"20px",lineHeight:"35px",display:this.condition!=5?"block":"none"}}>内</div>
                                                                 <div style={{position: 'relative',left:"120px",float:"left"}}>
-                                                                    <input id="setValue" className="form-control" style={{position: 'relative',left:"-100px",width:"auto"}}/>
+                                                                    <input id="setValue" className="form-control" style={{position: 'relative',left:"-100px",width:"250px"}}/>
                                                                 </div>
                                                                 <div style={{position: 'relative',float:"left",marginLeft:"40px",lineHeight:"35px"}}>按</div>
                                                                 <input id="sortParamInput" className="form-control" value={this.sortParam} style={{position: 'relative',left:"20px",float:"left",width:"120px"}}/>

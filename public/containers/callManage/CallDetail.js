@@ -147,7 +147,7 @@ class CallDetail extends Component{
                                     <li><a href="#left-icon-tab2" data-toggle="tab"><i className="icon-address-book position-left"></i> 信息</a></li>
                                     <li><a href="#left-icon-tab3" data-toggle="tab"><i className="icon-location4 position-left"></i> 位置</a></li>
                                     <li><a href="#left-icon-tab4" data-toggle="tab"><i className="icon-coin-yen position-left"></i> 贷款申请</a></li>
-                                    <li><a href="#left-icon-tab5" data-toggle="tab"><i className="icon-pushpin position-left"></i> 活动</a></li>
+                                    <li><a href="#left-icon-tab5" data-toggle="tab"><i className="icon-pushpin position-left"></i> 规则分析</a></li>
 
                                 </ul>
 
@@ -370,30 +370,30 @@ class CallDetail extends Component{
                                                 <tbody>
                                                 <tr>
                                                     <td>
-                                                        <h6 className="no-margin">设备ID </h6>
-                                                        <span className="text-muted">97413C47D2Q27125C7X</span>
+                                                        <h6 className="no-margin">姓名 </h6>
+                                                        <span className="text-muted">李海全</span>
                                                     </td>
                                                     <td>
-                                                        <h6 className="no-margin">IDFV</h6>
-                                                        <span className="text-muted">4859-5416-8541-8569</span>
+                                                        <h6 className="no-margin">性别</h6>
+                                                        <span className="text-muted">男</span>
                                                     </td>
                                                     <td>
-                                                        <h6 className="no-margin">MAC</h6>
-                                                        <span className="text-muted">ECAX456-5X877-65451A-5565</span>
+                                                        <h6 className="no-margin">年龄</h6>
+                                                        <span className="text-muted">40</span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <h6 className="no-margin">IMEI</h6>
-                                                        <span className="text-muted">X-78921456-IMEI-6452A</span>
+                                                        <h6 className="no-margin">家庭住址</h6>
+                                                        <span className="text-muted">陕西省江宁区筒子骨镇3号街区1182号</span>
                                                     </td>
                                                     <td>
-                                                        <h6 className="no-margin">ANDRIOD ID</h6>
-                                                        <span className="text-muted">I7895415A652417C889B688T2B24S78Q</span>
+                                                        <h6 className="no-margin">学历</h6>
+                                                        <span className="text-muted">博士</span>
                                                     </td>
                                                     <td>
-                                                        <h6 className="no-margin">ANDROID ADVERSTING ID</h6>
-                                                        <span className="text-muted">179871AX8427F7Q27V2B</span>
+                                                        <h6 className="no-margin">婚姻状况</h6>
+                                                        <span className="text-muted">已婚</span>
                                                     </td>
                                                 </tr>
                                                 </tbody>
@@ -549,256 +549,99 @@ class CallDetail extends Component{
                                         <div className="timeline timeline-left content-group">
                                             <div className="timeline-container">
                                                 <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"red",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>89</span></div>
-                                                        </a>
-                                                    </div>
-
                                                     <div className="panel panel-flat timeline-content">
                                                         <div className="panel-heading">
-                                                            <h6 className="panel-title">交易支付</h6>
+                                                            <h6 className="panel-title">身份证号码不合法</h6>
                                                             <div className="heading-elements">
                                                                 <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
                                                             </div>
                                                         </div>
 
                                                         <div className="panel-body">
-                                                            交易ID ：5412558B7445S5D5315D2SF
+                                                            身份证号 ：34089841256321521X
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"orange",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>72</span></div>
-                                                        </a>
-                                                    </div>
-
                                                     <div className="panel panel-flat timeline-content">
                                                         <div className="panel-heading">
-                                                            <h6 className="panel-title">创建订单</h6>
+                                                            <h6 className="panel-title">3个月内贷款银行过多</h6>
                                                             <div className="heading-elements">
                                                                 <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
                                                             </div>
                                                         </div>
 
                                                         <div className="panel-body">
-                                                            订单ID ：test-for-automation
+                                                            5 家
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"orange",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>65</span></div>
-                                                        </a>
-                                                    </div>
 
                                                     <div className="panel panel-flat timeline-content">
                                                         <div className="panel-heading">
-                                                            <h6 className="panel-title">加入购物车</h6>
+                                                            <h6 className="panel-title">三个月新开经营性贷款笔数过多</h6>
                                                             <div className="heading-elements">
                                                                 <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
                                                             </div>
                                                         </div>
 
                                                         <div className="panel-body">
-                                                            商品ID ：choclate7788,choclate7788,choclate7788,choclate7788，choclate7788，choclate7788，choclate7788
+                                                            17 笔
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"green",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>40</span></div>
-                                                        </a>
-                                                    </div>
 
                                                     <div className="panel panel-flat timeline-content">
                                                         <div className="panel-heading">
-                                                            <h6 className="panel-title">账号登入</h6>
+                                                            <h6 className="panel-title">还款其他贷款过去24个月超过最大逾期数</h6>
                                                             <div className="heading-elements">
                                                                 <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
                                                             </div>
                                                         </div>
 
                                                         <div className="panel-body">
-                                                            账号ID ：借款事件_网站_20170406
+                                                            16 次
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"green",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>12</span></div>
-                                                        </a>
-                                                    </div>
 
                                                     <div className="panel panel-flat timeline-content">
                                                         <div className="panel-heading">
-                                                            <h6 className="panel-title">创建账号</h6>
+                                                            <h6 className="panel-title">还款其他贷款数目过多</h6>
                                                             <div className="heading-elements">
                                                                 <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
                                                             </div>
                                                         </div>
 
                                                         <div className="panel-body">
-                                                            账号ID ：借款事件_网站_20170406
+                                                            7 笔
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"green",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>6</span></div>
-                                                        </a>
-                                                    </div>
 
                                                     <div className="panel panel-flat timeline-content">
                                                         <div className="panel-heading">
-                                                            <h6 className="panel-title">设备启动</h6>
+                                                            <h6 className="panel-title">其他贷款平均年薪过长</h6>
                                                             <div className="heading-elements">
                                                                 <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
                                                             </div>
                                                         </div>
 
                                                         <div className="panel-body">
-                                                            设备IDFA ：ECAX456-5X877-65451A-5565 &nbsp;&nbsp;&nbsp;&nbsp;地理位置 ：中国 四川 成都
+                                                            30 年
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"green",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>6</span></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div className="panel panel-flat timeline-content">
-                                                        <div className="panel-heading">
-                                                            <h6 className="panel-title">设备启动</h6>
-                                                            <div className="heading-elements">
-                                                                <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="panel-body">
-                                                            设备IDFA ：ECAX456-5X877-65451A-5565 &nbsp;&nbsp;&nbsp;&nbsp;地理位置 ：中国 四川 成都
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"green",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>6</span></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div className="panel panel-flat timeline-content">
-                                                        <div className="panel-heading">
-                                                            <h6 className="panel-title">设备启动</h6>
-                                                            <div className="heading-elements">
-                                                                <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="panel-body">
-                                                            设备IDFA ：ECAX456-5X877-65451A-5565 &nbsp;&nbsp;&nbsp;&nbsp;地理位置 ：中国 四川 成都
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"green",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>6</span></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div className="panel panel-flat timeline-content">
-                                                        <div className="panel-heading">
-                                                            <h6 className="panel-title">设备启动</h6>
-                                                            <div className="heading-elements">
-                                                                <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="panel-body">
-                                                            设备IDFA ：ECAX456-5X877-65451A-5565 &nbsp;&nbsp;&nbsp;&nbsp;地理位置 ：中国 四川 成都
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"green",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>6</span></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div className="panel panel-flat timeline-content">
-                                                        <div className="panel-heading">
-                                                            <h6 className="panel-title">设备启动</h6>
-                                                            <div className="heading-elements">
-                                                                <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="panel-body">
-                                                            设备IDFA ：ECAX456-5X877-65451A-5565 &nbsp;&nbsp;&nbsp;&nbsp;地理位置 ：中国 四川 成都
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"green",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>6</span></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div className="panel panel-flat timeline-content">
-                                                        <div className="panel-heading">
-                                                            <h6 className="panel-title">设备启动</h6>
-                                                            <div className="heading-elements">
-                                                                <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="panel-body">
-                                                            设备IDFA ：ECAX456-5X877-65451A-5565 &nbsp;&nbsp;&nbsp;&nbsp;地理位置 ：中国 四川 成都
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className="timeline-row">
-                                                    <div className="timeline-icon">
-                                                        <a href="#">
-                                                            <div style={{width:"40px",height:"40px",borderRadius:"50%",backgroundColor:"green",textAlign:"center",fontSize:"20px",color:"white"}}><span style={{position:"relative",top:"4px"}}>6</span></div>
-                                                        </a>
-                                                    </div>
-
-                                                    <div className="panel panel-flat timeline-content">
-                                                        <div className="panel-heading">
-                                                            <h6 className="panel-title">设备启动</h6>
-                                                            <div className="heading-elements">
-                                                                <span className="heading-text"><i className="icon-history position-left text-success"></i> 2017-09-09 22:14:56</span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="panel-body">
-                                                            设备IDFA ：ECAX456-5X877-65451A-5565 &nbsp;&nbsp;&nbsp;&nbsp;地理位置 ：中国 四川 成都
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

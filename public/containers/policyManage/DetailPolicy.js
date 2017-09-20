@@ -477,7 +477,7 @@ class DetailPolicy extends Component{
                                        style={{
                                            textAlign: 'right'
                                        }}>{"描述"}</label>
-                                <div className="col-lg-3">
+                                <div className="col-lg-6">
                                     <span className="form-control">主属性在指定时间范围内出现的次数或者关联从属性的个数</span>
                                 </div>
                             </div>
@@ -502,7 +502,7 @@ class DetailPolicy extends Component{
                                        style={{
                                            textAlign: 'right'
                                        }}>{"主属性"}</label>
-                                <div className="col-lg-3">
+                                <div className="col-lg-6">
                                     <select id="classify" className="form-control" style={style}>
                                         <option value={1}>[系统][字段]  设备ID</option>
                                         <option value={2}>[系统][字段]  应用名</option>
@@ -517,7 +517,7 @@ class DetailPolicy extends Component{
                                        style={{
                                            textAlign: 'right'
                                        }}>{"从属性"}</label>
-                                <div className="col-lg-3">
+                                <div className="col-lg-6">
                                     <select id="classify" className="form-control" style={style}>
                                         <option value={1}>空值</option>
                                         <option value={2}>[系统][字段]  应用名</option>
@@ -533,7 +533,7 @@ class DetailPolicy extends Component{
                                        style={{
                                            textAlign: 'right'
                                        }}>{"计算方式"}</label>
-                                <div className="col-lg-3">
+                                <div className="col-lg-6">
                                     <select id="classify" className="form-control" style={style}>
                                         <option value={1}>求关联个数</option>
                                         <option value={2}>求出现次数</option>
@@ -545,7 +545,7 @@ class DetailPolicy extends Component{
                                        style={{
                                            textAlign: 'right'
                                        }}>{"作用域"}</label>
-                                <div className="col-lg-3">
+                                <div className="col-lg-6">
                                     <select id="classify" className="form-control" style={style}>
                                         <option value={1}>本应用</option>
                                         <option value={2}>合作方</option>
